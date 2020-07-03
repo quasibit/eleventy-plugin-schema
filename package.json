@@ -1,0 +1,84 @@
+{
+  "name": "@quasibit/eleventy-plugin-schema",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "description": "Eleventy plugin to generate JSON-LD structured data.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "demo": "npx @11ty/eleventy --input=demo --output=demo/_site --config=demo/.eleventy.js",
+    "test": "run-p -c test:*",
+    "test:ava": "ava",
+    "test:eslint": "eslint \"./**/*.js\" --color",
+    "test:prettier": "prettier --check ./**/*.js",
+    "coverage": "nyc --reporter=lcov ava",
+    "format": "prettier --write ./**/*.js",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quasibit/eleventy-plugin-schema.git"
+  },
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "eleventy-plugin",
+    "json-ld",
+    "jsonld",
+    "schema"
+  ],
+  "author": {
+    "name": "Nuno Freitas",
+    "email": "nuno.freitas@quasibit.com",
+    "homepage": "https://www.quasibit.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quasibit/eleventy-plugin-schema/issues"
+  },
+  "homepage": "https://github.com/quasibit/eleventy-plugin-schema#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "ava": "^3.9.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.3.1",
+    "eslint-config-hardcore": "^12.5.0",
+    "eslint-plugin-ava": "^10.3.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
+    "semantic-release": "^17.1.1"
+  },
+  "peerDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
+  }
+}

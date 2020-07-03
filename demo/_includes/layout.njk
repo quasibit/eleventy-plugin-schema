@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en=US" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    {% jsonLdScript meta, type, tags %}
+  </head>
+  <body>
+    <h1>{{ meta.title }}</h1>
+    {{ content | safe }}
+  </body>
+</html>

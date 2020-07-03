@@ -1,0 +1,19 @@
+{
+  "extends": ["hardcore", "hardcore/node"],
+  "env": {
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["./test/**/*.js"],
+      "extends": ["plugin:ava/recommended"],
+      "parserOptions": {
+        "sourceType": "script"
+      },
+      "rules": {
+        "node/no-unpublished-require": 0,
+        "id-length": ["error", { "exceptions": ["t"] }]
+      }
+    }
+  ]
+}
