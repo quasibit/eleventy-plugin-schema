@@ -51,12 +51,12 @@ const product = require("./product");
  * @returns {Object}
  */
 module.exports = ({ meta, type, tags = [] }) => {
-  const content = page({ meta });
+  let content = page({ meta });
   // eslint-disable-next-line padding-line-between-statements
   if (type === "post") {
-    post({ meta, tags });
+    content = post({ meta, tags });
   } else if (type === "product") {
-    product({ meta, tags });
+    content = product({ meta, tags });
   }
 
   return {
