@@ -46,14 +46,15 @@ test("product", (t) => {
     manufacturer: "Pear",
     material: "Plastic",
     productID: "ISBN:1",
-    category: "cars"
+    category: "cars",
 
     offers: {
-      price: "100"
-    }
+      price: "100",
+    },
+
     rating: {
-      ratingValue: "4.2"
-    }
+      ratingValue: "4.2",
+    },
   };
   const tags = ["tag1", "tag2"];
   const expected = {
@@ -63,13 +64,13 @@ test("product", (t) => {
     dateModified: meta.modified,
 
     offers: {
-      "@type": "Offer"
-      price: meta.offer.price
+      "@type": "Offer",
+      price: meta.offers.price,
     },
 
     aggregateRating: {
-      "@type": "AggregateRating"
-      ratingValue: meta.rating.ratingValue
+      "@type": "AggregateRating",
+      ratingValue: meta.rating.ratingValue,
     },
 
     author: {

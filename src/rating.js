@@ -5,20 +5,21 @@
  *
  * @param {Object} rating AggregateRating properties.
  * @param {String} rating.ratingValue The rating for the content.
- * @param {String} rating.bestRating The highest value allowed in this rating system.
- * @param {String} rating.worstRating The lowest value allowed in this rating system.
- * @param {String} rating.ratingCount The count of total number of ratings.
- * @param {String} rating.reviewCount The count of total number of reviews.
+ * @param {String} rating.bestRating The highest value allowed.
+ * @param {String} rating.worstRating The lowest value allowed.
+ * @param {String} rating.ratingCount Total number of ratings.
+ * @param {String} rating.reviewCount Total number of reviews.
  * @returns {Object|undefined}
  */
+// eslint-disable-next-line max-statements
 module.exports = (rating) => {
   if (!rating) {
     return;
   }
 
   const aggregateRating = {
-    "@type": "AggregateRating"
-    }
+    "@type": "AggregateRating",
+  };
 
   if (rating.ratingValue) {
     aggregateRating.ratingValue = rating.ratingValue;

@@ -39,24 +39,24 @@ const product = require("./product");
  * @param {String} param0.meta.gtin14 The GTIN-14 code of the product.
  * @param {String} param0.meta.gtin8 The GTIN-8 code of the product.
  * @param {String} param0.meta.sku The Stock Keeping Unit.
- * @param {String} param0.meta.mpn The Manufacturer Part Number (MPN) of the product.
- * @param {String} param0.meta.countryOfOrigin The country of origin of something.
+ * @param {String} param0.meta.mpn The Manufacturer Part Number of the product.
+ * @param {String} param0.meta.countryOfOrigin The country of origin.
  * @param {String} param0.meta.color The color of the product.
- * @param {String} param0.meta.brand The brand(s) associated with a product.
- * @param {String} param0.meta.manufacturer The manufacturer of the product.
- * @param {String} param0.meta.material A material that something is made from.
+ * @param {String} param0.meta.brand The brand(s) of a product.
+ * @param {String} param0.meta.manufacturer The manufacturer.
+ * @param {String} param0.meta.material A material that it is made from.
  * @param {String} param0.meta.productID The product identifier, such as ISBN.
- * @param {String} param0.meta.productionDate The date of production of the item, e.g. vehicle.
+ * @param {String} param0.meta.productionDate The date of production.
  * @param {String} param0.meta.category A category for the item.
  * @returns {Object}
  */
 module.exports = ({ meta, type, tags = [] }) => {
-
   const content = page({ meta });
-  if(type === "post"){
+  // eslint-disable-next-line padding-line-between-statements
+  if (type === "post") {
     post({ meta, tags });
-  } else if( type === "product"){
-    post({ meta, tags });
+  } else if (type === "product") {
+    product({ meta, tags });
   }
 
   return {

@@ -36,25 +36,26 @@ const rating = require("./rating");
  * @param {String} param0.meta.gtin14 The GTIN-14 code of the product.
  * @param {String} param0.meta.gtin8 The GTIN-8 code of the product.
  * @param {String} param0.meta.sku The Stock Keeping Unit.
- * @param {String} param0.meta.mpn The Manufacturer Part Number (MPN) of the product.
- * @param {String} param0.meta.countryOfOrigin The country of origin of something.
+ * @param {String} param0.meta.mpn The Manufacturer Part Number of the product.
+ * @param {String} param0.meta.countryOfOrigin The country of origin.
  * @param {String} param0.meta.color The color of the product.
  * @param {String} param0.meta.brand The brand(s) associated with a product.
  * @param {String} param0.meta.manufacturer The manufacturer of the product.
  * @param {String} param0.meta.material A material that something is made from.
  * @param {String} param0.meta.productID The product identifier, such as ISBN.
- * @param {String} param0.meta.productionDate The date of production of the item, e.g. vehicle.
+ * @param {String} param0.meta.productionDate The date of production.
  * @param {String} param0.meta.category A category for the item.
  * @param {String[]} param0.tags (Optional) Tags.
  * @returns {Object}
  */
+// eslint-disable-next-line max-statements, complexity, sonarjs/cognitive-complexity
 module.exports = ({ meta, tags = [] }) => {
   const base = page({ tags, meta });
   const product = {
     "@type": "Product",
     author: author(meta.author),
-    aggregateRating: author(meta.rating),
-    offers: author(meta.offer),
+    aggregateRating: rating(meta.rating),
+    offers: offer(meta.offers),
     keywords: tags.join(","),
   };
 
@@ -121,5 +122,6 @@ module.exports = ({ meta, tags = [] }) => {
   if (meta.category) {
     product.category = meta.category;
   }
+
   return { ...base, ...product };
 };

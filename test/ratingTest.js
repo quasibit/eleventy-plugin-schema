@@ -13,12 +13,12 @@ test("rating", (t) => {
     reviewCount: "10",
   };
   const expected = {
-    "@type": "AggregateRating"
+    "@type": "AggregateRating",
     ratingValue: data.ratingValue,
     bestRating: data.bestRating,
     worstRating: data.worstRating,
     ratingCount: data.ratingCount,
-    reviewCount: data.reviewCount
+    reviewCount: data.reviewCount,
   };
 
   t.deepEqual(rating(data), expected);

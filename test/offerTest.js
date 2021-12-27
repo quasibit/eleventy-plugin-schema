@@ -12,17 +12,17 @@ test("offer", (t) => {
     availability: "https://schema.org/InStock",
     availabilityStarts: "01/01/2000",
     availabilityEnds: "01/01/2000",
-    itemCondition: "https://schema.org/NewCondition"
+    itemCondition: "https://schema.org/NewCondition",
   };
   const expected = {
-    "@type": "Offer"
+    "@type": "Offer",
     priceCurrency: data.priceCurrency,
     price: data.price,
     priceValidUntil: data.priceValidUntil,
     availability: data.availability,
     availabilityStarts: data.availabilityStarts,
     availabilityEnds: data.availabilityEnds,
-    itemCondition: data.itemCondition
+    itemCondition: data.itemCondition,
   };
 
   t.deepEqual(offer(data), expected);
