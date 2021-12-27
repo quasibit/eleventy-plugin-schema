@@ -28,6 +28,23 @@ const main = require("./main");
  * @param {String} param0.meta.section Article section.
  * @param {String} param0.type Type of content ("page" or "post").
  * @param {String[]} param0.tags (Optional) Tags.
+ * @param {Object} param0.meta.offers Product offers.
+ * @param {Object} param0.meta.rating Product rating.
+ * @param {String} param0.meta.gtin A Global Trade Item Number (GTIN).
+ * @param {String} param0.meta.gtin12 The GTIN-12 code of the product.
+ * @param {String} param0.meta.gtin13 The GTIN-13 code of the product
+ * @param {String} param0.meta.gtin14 The GTIN-14 code of the product.
+ * @param {String} param0.meta.gtin8 The GTIN-8 code of the product.
+ * @param {String} param0.meta.sku The Stock Keeping Unit.
+ * @param {String} param0.meta.mpn The Manufacturer Part Number (MPN) of the product.
+ * @param {String} param0.meta.countryOfOrigin The country of origin of something.
+ * @param {String} param0.meta.color The color of the product.
+ * @param {String} param0.meta.brand The brand(s) associated with a product.
+ * @param {String} param0.meta.manufacturer The manufacturer of the product.
+ * @param {String} param0.meta.material A material that something is made from.
+ * @param {String} param0.meta.productID The product identifier, such as ISBN.
+ * @param {String} param0.meta.productionDate The date of production of the item, e.g. vehicle.
+ * @param {String} param0.meta.category A category for the item.
  * @returns {String}
  */
 module.exports = ({ meta, type, tags = [] }) => {
