@@ -26,13 +26,6 @@ test("product", (t) => {
       src: "https://example.com/image.jpg",
     },
 
-    author: {
-      name: "First Last",
-    },
-
-    published: new Date("2020-07-03T06:43:21.123Z"),
-    modified: new Date("2020-07-03T08:35:46.289Z"),
-
     gtin: "1",
     gtin12: "1",
     gtin13: "1",
@@ -61,9 +54,6 @@ test("product", (t) => {
   const tags = ["tag1", "tag2"];
   const expected = {
     "@type": "Product",
-    keywords: tags.join(","),
-    datePublished: meta.published,
-    dateModified: meta.modified,
     name: meta.name,
 
     offers: {
@@ -74,11 +64,6 @@ test("product", (t) => {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: meta.rating.ratingValue,
-    },
-
-    author: {
-      "@type": "Person",
-      name: meta.author.name,
     },
 
     mainEntityOfPage: {
@@ -95,8 +80,17 @@ test("product", (t) => {
     mpn: meta.mpn,
     countryOfOrigin: meta.countryOfOrigin,
     color: meta.color,
-    brand: meta.brand,
-    manufacturer: meta.manufacturer,
+
+    brand: {
+      "@type": "Brand",
+      name: meta.brand,
+    },
+
+    manufacturer: {
+      "@type": "Organization",
+      name: meta.manufacturer,
+    },
+
     material: meta.material,
     productID: meta.productID,
     category: meta.category,
