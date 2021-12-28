@@ -45,7 +45,7 @@ The shortcode supports the following schema types:
 - [WebSite](https://schema.org/WebSite).
 - [BlogPosting](https://schema.org/BlogPosting).
 - [WebPage](https://schema.org/WebPage).
-- [Product](https://schema.org/Product).
+- [Product](https://schema.org/Product) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 
 ## Usage
 
