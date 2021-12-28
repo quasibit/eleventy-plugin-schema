@@ -55,6 +55,8 @@ test("product", (t) => {
     rating: {
       ratingValue: "4.2",
     },
+
+    name: "something cool",
   };
   const tags = ["tag1", "tag2"];
   const expected = {
@@ -62,6 +64,7 @@ test("product", (t) => {
     keywords: tags.join(","),
     datePublished: meta.published,
     dateModified: meta.modified,
+    name: meta.name,
 
     offers: {
       "@type": "Offer",
@@ -100,27 +103,8 @@ test("product", (t) => {
 
     url: meta.url,
 
-    isPartOf: {
-      "@id": `${meta.site.url}#website`,
-    },
-
-    headline: meta.title,
     description: meta.description,
     image: meta.image.src,
-    inLanguage: meta.language,
-
-    publisher: {
-      "@type": "Organization",
-      name: meta.site.name,
-      url: meta.site.url,
-
-      logo: {
-        "@type": "ImageObject",
-        url: meta.site.logo.src,
-        width: meta.site.logo.width,
-        height: meta.site.logo.height,
-      },
-    },
   };
 
   t.deepEqual(product({ meta, tags }), expected);

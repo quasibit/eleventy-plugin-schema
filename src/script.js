@@ -45,6 +45,7 @@ const main = require("./main");
  * @param {String} param0.meta.productID The product identifier, such as ISBN.
  * @param {String} param0.meta.productionDate The date of production.
  * @param {String} param0.meta.category A category for the item.
+ * @param {String} param0.meta.identifier A identifier for the item.
  * @returns {String}
  */
 module.exports = ({ meta, type, tags = [] }) => {

@@ -1,6 +1,5 @@
 "use strict";
 
-const page = require("./page");
 const author = require("./author");
 const offer = require("./offer");
 const rating = require("./rating");
@@ -45,18 +44,27 @@ const rating = require("./rating");
  * @param {String} param0.meta.productID The product identifier, such as ISBN.
  * @param {String} param0.meta.productionDate The date of production.
  * @param {String} param0.meta.category A category for the item.
+ * @param {String} param0.meta.identifier A identifier for the item.
  * @param {String[]} param0.tags (Optional) Tags.
  * @returns {Object}
  */
 // eslint-disable-next-line max-statements, complexity, sonarjs/cognitive-complexity
 module.exports = ({ meta, tags = [] }) => {
-  const base = page({ tags, meta });
   const product = {
     "@type": "Product",
     author: author(meta.author),
     aggregateRating: rating(meta.rating),
     offers: offer(meta.offers),
     keywords: tags.join(","),
+    url: meta.url,
+    description: meta.description,
+    image: meta.image.src,
+    name: meta.name,
+
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": meta.url,
+    },
   };
 
   if (meta.published) {
@@ -123,5 +131,17 @@ module.exports = ({ meta, tags = [] }) => {
     product.category = meta.category;
   }
 
-  return { ...base, ...product };
+  if (meta.identifier) {
+    product.identifier = meta.identifier;
+  }
+
+  // add name
+  // add identifier
+  // pop headline
+  // pop inLanguage
+  // pop keywords
+  // pop isPartOf
+  // pop publisher
+
+  return product;
 };
