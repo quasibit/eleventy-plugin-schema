@@ -3,6 +3,7 @@
 const page = require("./page");
 const post = require("./post");
 const website = require("./website");
+const product = require("./product");
 
 /**
  * Structured data for the current context.
@@ -30,10 +31,34 @@ const website = require("./website");
  * @param {String} param0.meta.section Article section.
  * @param {String} param0.type Type of content ("page" or "post").
  * @param {String[]} param0.tags (Optional) Tags.
+ * @param {Object} param0.meta.offers Product offers.
+ * @param {Object} param0.meta.rating Product rating.
+ * @param {String} param0.meta.gtin A Global Trade Item Number (GTIN).
+ * @param {String} param0.meta.gtin12 The GTIN-12 code of the product.
+ * @param {String} param0.meta.gtin13 The GTIN-13 code of the product
+ * @param {String} param0.meta.gtin14 The GTIN-14 code of the product.
+ * @param {String} param0.meta.gtin8 The GTIN-8 code of the product.
+ * @param {String} param0.meta.sku The Stock Keeping Unit.
+ * @param {String} param0.meta.mpn The Manufacturer Part Number of the product.
+ * @param {String} param0.meta.countryOfOrigin The country of origin.
+ * @param {String} param0.meta.color The color of the product.
+ * @param {String} param0.meta.brand The brand(s) of a product.
+ * @param {String} param0.meta.manufacturer The manufacturer.
+ * @param {String} param0.meta.material A material that it is made from.
+ * @param {String} param0.meta.productID The product identifier, such as ISBN.
+ * @param {String} param0.meta.productionDate The date of production.
+ * @param {String} param0.meta.category A category for the item.
+ * @param {String} param0.meta.identifier A identifier for the item.
  * @returns {Object}
  */
 module.exports = ({ meta, type, tags = [] }) => {
-  const content = type === "post" ? post({ meta, tags }) : page({ meta });
+  let content = page({ meta });
+  // eslint-disable-next-line padding-line-between-statements
+  if (type === "post") {
+    content = post({ meta, tags });
+  } else if (type === "product") {
+    content = product({ meta, tags });
+  }
 
   return {
     "@context": "https://schema.org",

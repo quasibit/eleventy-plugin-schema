@@ -1,15 +1,17 @@
 "use strict";
 
-const main = require("./main");
+const author = require("./author");
+const offer = require("./offer");
+const rating = require("./rating");
 
 /**
- * Structured data script.
+ * Product structured data. See: https://schema.org/Product.
+ * More info: https://jsonld.com/product/.
  *
- * @param {Object} param0 Parameters
+ * @param {Object} param0 Context.
  * @param {Object} param0.meta Meta data.
  * @param {Object} param0.meta.site Site properties.
  * @param {String} param0.meta.site.name Site name.
- * @param {String} param0.meta.site.description Site description.
  * @param {String} param0.meta.site.url Site home URL.
  * @param {Object} param0.meta.site.logo Site logo image properties.
  * @param {String} param0.meta.site.logo.src Image URI.
@@ -25,9 +27,6 @@ const main = require("./main");
  * @param {String} param0.meta.author.name Author name.
  * @param {Date} param0.meta.published Published date.
  * @param {Date} param0.meta.modified Modified date.
- * @param {String} param0.meta.section Article section.
- * @param {String} param0.type Type of content ("page" or "post").
- * @param {String[]} param0.tags (Optional) Tags.
  * @param {Object} param0.meta.offers Product offers.
  * @param {Object} param0.meta.rating Product rating.
  * @param {String} param0.meta.gtin A Global Trade Item Number (GTIN).
@@ -46,13 +45,103 @@ const main = require("./main");
  * @param {String} param0.meta.productionDate The date of production.
  * @param {String} param0.meta.category A category for the item.
  * @param {String} param0.meta.identifier A identifier for the item.
- * @returns {String}
+ * @param {String[]} param0.tags (Optional) Tags.
+ * @returns {Object}
  */
-module.exports = ({ meta, type, tags = [] }) => {
-  const json = main({ meta, type, tags });
-  const spaces = 2;
+// eslint-disable-next-line max-statements, complexity, sonarjs/cognitive-complexity
+module.exports = ({ meta, tags = [] }) => {
+  const product = {
+    "@type": "Product",
+    author: author(meta.author),
+    aggregateRating: rating(meta.rating),
+    offers: offer(meta.offers),
+    keywords: tags.join(","),
+    url: meta.url,
+    description: meta.description,
+    image: meta.image.src,
+    name: meta.name,
 
-  return `<script type="application/ld+json">
-    ${JSON.stringify(json, undefined, spaces)}
-  </script>`;
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": meta.url,
+    },
+  };
+
+  if (meta.published) {
+    product.datePublished = meta.published;
+  }
+
+  if (meta.modified) {
+    product.dateModified = meta.modified;
+  }
+
+  if (meta.gtin) {
+    product.gtin = meta.gtin;
+  }
+
+  if (meta.gtin12) {
+    product.gtin12 = meta.gtin12;
+  }
+
+  if (meta.gtin13) {
+    product.gtin13 = meta.gtin13;
+  }
+
+  if (meta.gtin14) {
+    product.gtin14 = meta.gtin14;
+  }
+
+  if (meta.gtin8) {
+    product.gtin8 = meta.gtin8;
+  }
+
+  if (meta.sku) {
+    product.sku = meta.sku;
+  }
+
+  if (meta.mpn) {
+    product.mpn = meta.mpn;
+  }
+
+  if (meta.countryOfOrigin) {
+    product.countryOfOrigin = meta.countryOfOrigin;
+  }
+
+  if (meta.color) {
+    product.color = meta.color;
+  }
+
+  if (meta.brand) {
+    product.brand = meta.brand;
+  }
+
+  if (meta.manufacturer) {
+    product.manufacturer = meta.manufacturer;
+  }
+
+  if (meta.material) {
+    product.material = meta.material;
+  }
+
+  if (meta.productID) {
+    product.productID = meta.productID;
+  }
+
+  if (meta.category) {
+    product.category = meta.category;
+  }
+
+  if (meta.identifier) {
+    product.identifier = meta.identifier;
+  }
+
+  // add name
+  // add identifier
+  // pop headline
+  // pop inLanguage
+  // pop keywords
+  // pop isPartOf
+  // pop publisher
+
+  return product;
 };
