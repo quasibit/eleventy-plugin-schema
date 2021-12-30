@@ -1,6 +1,5 @@
 "use strict";
 
-const author = require("./author");
 const offer = require("./offer");
 const rating = require("./rating");
 
@@ -49,13 +48,11 @@ const rating = require("./rating");
  * @returns {Object}
  */
 // eslint-disable-next-line max-statements, complexity, sonarjs/cognitive-complexity
-module.exports = ({ meta, tags = [] }) => {
+module.exports = ({ meta }) => {
   const product = {
     "@type": "Product",
-    author: author(meta.author),
     aggregateRating: rating(meta.rating),
     offers: offer(meta.offers),
-    keywords: tags.join(","),
     url: meta.url,
     description: meta.description,
     image: meta.image.src,
@@ -66,14 +63,6 @@ module.exports = ({ meta, tags = [] }) => {
       "@id": meta.url,
     },
   };
-
-  if (meta.published) {
-    product.datePublished = meta.published;
-  }
-
-  if (meta.modified) {
-    product.dateModified = meta.modified;
-  }
 
   if (meta.gtin) {
     product.gtin = meta.gtin;
@@ -112,11 +101,17 @@ module.exports = ({ meta, tags = [] }) => {
   }
 
   if (meta.brand) {
-    product.brand = meta.brand;
+    product.brand = {
+      "@type": "Brand",
+      name: meta.brand,
+    };
   }
 
   if (meta.manufacturer) {
-    product.manufacturer = meta.manufacturer;
+    product.manufacturer = {
+      "@type": "Organization",
+      name: meta.manufacturer,
+    };
   }
 
   if (meta.material) {
@@ -134,14 +129,6 @@ module.exports = ({ meta, tags = [] }) => {
   if (meta.identifier) {
     product.identifier = meta.identifier;
   }
-
-  // add name
-  // add identifier
-  // pop headline
-  // pop inLanguage
-  // pop keywords
-  // pop isPartOf
-  // pop publisher
 
   return product;
 };

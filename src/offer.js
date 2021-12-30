@@ -13,7 +13,7 @@
  * @param {String} offer.itemCondition The condition of the product.
  * @returns {Object|undefined}
  */
-// eslint-disable-next-line max-statements
+// eslint-disable-next-line max-statements, complexity
 module.exports = (offer) => {
   if (!offer) {
     return;
@@ -22,6 +22,10 @@ module.exports = (offer) => {
   const productOffer = {
     "@type": "Offer",
   };
+
+  if (offer.url) {
+    productOffer.url = offer.url;
+  }
 
   if (offer.priceCurrency) {
     productOffer.priceCurrency = offer.priceCurrency;
