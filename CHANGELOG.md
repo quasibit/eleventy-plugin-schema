@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.1.0...v1.2.0) (2021-12-30)
+
+
+### Features
+
+* add support for new eleventy version ([fc7954a](https://github.com/quasibit/eleventy-plugin-schema/commit/fc7954a0eb1390a9f58a8f00247f052b8219ac45))
+
 # [1.1.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.0.0...v1.1.0) (2021-12-28)
 
 
