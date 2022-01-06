@@ -4,6 +4,7 @@ const page = require("./page");
 const post = require("./post");
 const website = require("./website");
 const product = require("./product");
+const organization = require("./product");
 
 /**
  * Structured data for the current context.
@@ -62,6 +63,6 @@ module.exports = ({ meta, type, tags = [] }) => {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [website({ meta }), content],
+    "@graph": [organization({ meta }), website({ meta }), content],
   };
 };
