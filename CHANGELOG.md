@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.2.0...v1.3.0) (2022-01-08)
+
+
+### Features
+
+* add organization schema ([d8f99d0](https://github.com/quasibit/eleventy-plugin-schema/commit/d8f99d028e37c9ec6dade3c630e38120c7ae52e5))
+
 # [1.2.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.1.0...v1.2.0) (2021-12-30)
 
 
