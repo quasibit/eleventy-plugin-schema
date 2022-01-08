@@ -4,7 +4,7 @@ const page = require("./page");
 const post = require("./post");
 const website = require("./website");
 const product = require("./product");
-const organization = require("./product");
+const organization = require("./organization");
 
 /**
  * Structured data for the current context.

@@ -4,7 +4,7 @@ const test = require("ava");
 
 const image = require("../src/image");
 
-test("image", (t) => {
+test("image object", (t) => {
   const data = {
     src: "https://example.com/image.jpg",
     width: "2000",
@@ -18,6 +18,12 @@ test("image", (t) => {
   };
 
   t.deepEqual(image(data), expected);
+});
+
+test("image string", (t) => {
+  const url = "https://example.com/image.jpg";
+
+  t.deepEqual(image(url), url);
 });
 
 test("image empty", (t) => {

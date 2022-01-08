@@ -3,6 +3,7 @@
 const test = require("ava");
 
 const organization = require("../src/organization");
+const parsedEqual = require("../utils/parsedEqual");
 
 test("organization", (t) => {
   const meta = {
@@ -133,7 +134,7 @@ test("organization", (t) => {
     sameAs: meta.organization.sameAs,
   };
 
-  t.deepEqual(organization({ meta }), expected);
+  parsedEqual(t, organization({ meta }), expected);
 });
 
 test("small_organization", (t) => {
@@ -196,5 +197,5 @@ test("small_organization", (t) => {
     sameAs: meta.organization.sameAs,
   };
 
-  t.deepEqual(organization({ meta }), expected);
+  parsedEqual(t, organization({ meta }), expected);
 });
