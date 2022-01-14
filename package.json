@@ -12,7 +12,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "demo": "npx @11ty/eleventy --input=demo --output=demo/_site --config=demo/.eleventy.js",
-    "test": "run-p -c test:*",
+    "test": "run-p -c test:* demo",
     "test:ava": "ava",
     "test:eslint": "eslint \"./**/*.js\" --color",
     "test:prettier": "prettier --check ./**/*.js",
