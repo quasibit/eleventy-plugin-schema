@@ -11,35 +11,17 @@
  * @param {String} rating.reviewCount Total number of reviews.
  * @returns {Object|undefined}
  */
-// eslint-disable-next-line max-statements
 module.exports = (rating) => {
   if (!rating) {
     return;
   }
 
-  const aggregateRating = {
+  return {
     "@type": "AggregateRating",
+    ratingValue: rating.ratingValue,
+    bestRating: rating.bestRating,
+    worstRating: rating.worstRating,
+    ratingCount: rating.ratingCount,
+    reviewCount: rating.reviewCount,
   };
-
-  if (rating.ratingValue) {
-    aggregateRating.ratingValue = rating.ratingValue;
-  }
-
-  if (rating.bestRating) {
-    aggregateRating.bestRating = rating.bestRating;
-  }
-
-  if (rating.worstRating) {
-    aggregateRating.worstRating = rating.worstRating;
-  }
-
-  if (rating.ratingCount) {
-    aggregateRating.ratingCount = rating.ratingCount;
-  }
-
-  if (rating.reviewCount) {
-    aggregateRating.reviewCount = rating.reviewCount;
-  }
-
-  return aggregateRating;
 };

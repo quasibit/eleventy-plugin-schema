@@ -3,6 +3,7 @@
 const test = require("ava");
 
 const product = require("../src/product");
+const parsedEqual = require("../utils/parsedEqual");
 
 test("product", (t) => {
   const meta = {
@@ -101,5 +102,5 @@ test("product", (t) => {
     image: meta.image.src,
   };
 
-  t.deepEqual(product({ meta, tags }), expected);
+  parsedEqual(t, product({ meta, tags }), expected);
 });
