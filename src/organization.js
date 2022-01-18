@@ -11,19 +11,22 @@ const person = require("./person");
  *
  * @param {Object} param0 Context
  * @param {Object} param0.meta Meta data.
- * @param {String} param0.meta.name Organization name.
- * @param {String} param0.meta.description Organization description.
- * @param {String} param0.meta.url Organization URL.
- * @param {Object} param0.meta.address Organization address.
- * @param {Object} param0.meta.contactPoint Organization contact point.
- * @param {String} param0.meta.foundingDate Organization founding date.
- * @param {String} param0.meta.legalName Organization legal name.
- * @param {String|Object} param0.meta.logo Organization logo.
- * @param {String|Object} param0.meta.founder Organization founder.
- * @param {Array} param0.meta.founders Organization founders.
- * @param {String|Array} param0.meta.sameAs URL of a reference Web page that
- * unambiguously indicates the item's identity. E.g. the URL of the item's
- * Wikipedia page, Wikidata entry, or official website.
+ * @param {String} param0.meta.organization.name Organization name.
+ * @param {String} param0.meta.organization.description Organization
+ * description.
+ * @param {String} param0.meta.organization.url Organization URL.
+ * @param {Object} param0.meta.organization.address Organization address.
+ * @param {Object} param0.meta.organization.contactPoint Organization contact
+ * point.
+ * @param {String} param0.meta.organization.foundingDate Organization founding
+ * date.
+ * @param {String} param0.meta.organization.legalName Organization legal name.
+ * @param {String|Object} param0.meta.organization.logo Organization logo.
+ * @param {String|Object} param0.meta.organization.founder Organization founder.
+ * @param {Array} param0.meta.organization.founders Organization founders.
+ * @param {String|Array} param0.meta.organization.sameAs URL of a reference Web
+ * page that unambiguously indicates the item's identity. E.g. the URL of the
+ * item's Wikipedia page, Wikidata entry, or official website.
  * @returns {Object|undefined}
  */
 module.exports = ({ meta }) => {

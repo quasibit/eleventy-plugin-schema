@@ -12,7 +12,7 @@ test("breadcrumb single", (t) => {
         name: "Home",
         url: "https://schema.org",
         position: 1,
-        image: "/path/to/image.png",
+        image: "https://example.com/path/to/image.png",
       },
       {
         name: "Contact",
@@ -21,7 +21,6 @@ test("breadcrumb single", (t) => {
       {
         name: "About",
         url: "https://schema.org/About",
-        image: "nothing here",
       },
     ],
   };
@@ -58,8 +57,6 @@ test("breadcrumb single", (t) => {
           "@id": meta.breadcrumbs[2].url,
           // eslint-disable-next-line no-magic-numbers
           name: meta.breadcrumbs[2].name,
-          // eslint-disable-next-line no-magic-numbers
-          image: meta.breadcrumbs[2].image,
         },
       },
     ],
