@@ -75,7 +75,7 @@ module.exports = ({ meta, type, tags = [] }) => {
   if (type === "post") {
     content = post({ meta, tags });
   } else if (type === "product") {
-    content = product({ meta, tags });
+    content = product({ meta });
   }
 
   return {
