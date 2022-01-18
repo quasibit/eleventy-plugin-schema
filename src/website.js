@@ -1,5 +1,7 @@
 "use strict";
 
+const potentialAction = require("./potentialAction");
+
 /**
  * WebSite structured data. See: https://schema.org/WebSite.
  * More info https://jsonld.com/website/.
@@ -13,11 +15,21 @@
  * @param {String} param0.meta.language Language code (e.g. "en-US" or "en").
  * @returns {Object}
  */
-module.exports = ({ meta }) => ({
-  "@type": "WebSite",
-  "@id": `${meta.site.url}#website`,
-  url: meta.site.url,
-  name: meta.site.name,
-  description: meta.site.description,
-  inLanguage: meta.language,
-});
+module.exports = ({ meta }) => {
+  const website = {
+    "@type": "WebSite",
+    "@id": `${meta.site.url}#website`,
+    url: meta.site.url,
+    name: meta.site.name,
+    description: meta.site.description,
+    inLanguage: meta.language,
+  };
+
+  const action = potentialAction({ meta });
+
+  if (action) {
+    website.potentialAction = action;
+  }
+
+  return website;
+};
