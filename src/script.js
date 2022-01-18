@@ -53,6 +53,13 @@ module.exports = ({ meta, type, tags = [] }) => {
   const spaces = 2;
 
   return `<script type="application/ld+json">
-    ${JSON.stringify(json, undefined, spaces)}
+    ${JSON.stringify(
+      json,
+      (key, value) =>
+        Array.isArray(value)
+          ? value.filter((element) => element !== null && element !== undefined)
+          : value,
+      spaces
+    )}
   </script>`;
 };
