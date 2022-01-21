@@ -48,6 +48,7 @@ The shortcode supports the following schema types:
 - [Product](https://schema.org/Product) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [Organization](https://schema.org/Organization) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [Breadcrumbs](https://schema.org/BreadcrumbList) (thanks [@christopherpickering](https://github.com/christopherpickering)).
+- [SearchAction](https://schema.org/SearchAction) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 
 ## Usage
 
