@@ -3,9 +3,9 @@
 /**
  * Postal Address structured data. See: https://schema.org/SearchAction.
  *
- * @param {Object} SearchAction.
- * @param {url} action url.
- * must include {search_term_string} in the url.
+ * @param {Object} potentialAction SearchAction.
+ * @param {url} potentialAction.action Search. Must include
+ * {search_term_string} in the url.
  * @returns {Object|undefined}
  */
 module.exports = (potentialAction) => {
