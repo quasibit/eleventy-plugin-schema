@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.4.0...v1.5.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* null showing when optional schema is missing ([2f6f9e8](https://github.com/quasibit/eleventy-plugin-schema/commit/2f6f9e8d10a36685f1bfe688f313d45d1edddf22)), closes [#14](https://github.com/quasibit/eleventy-plugin-schema/issues/14)
+
+
+### Features
+
+* add search action schema ([1e6ab16](https://github.com/quasibit/eleventy-plugin-schema/commit/1e6ab1698834f66136dc164389067087a152e6ac))
+* **post:** allow custom tags in meta ([ed99a53](https://github.com/quasibit/eleventy-plugin-schema/commit/ed99a53e67f311526ffad3abd9dd8bca3bb7a914)), closes [#16](https://github.com/quasibit/eleventy-plugin-schema/issues/16)
+
 # [1.4.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.3.0...v1.4.0) (2022-01-14)
 
 
