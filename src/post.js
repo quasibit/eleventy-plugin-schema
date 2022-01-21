@@ -30,19 +30,13 @@ const author = require("./author");
  * @param {String[]} param0.tags (Optional) Tags.
  * @returns {Object}
  */
-// eslint-disable-next-line max-statements
 module.exports = ({ meta, tags = [] }) => {
   const base = page({ tags, meta });
   const post = {
     "@type": "BlogPosting",
     author: author(meta.author),
+    keywords: meta.keywords ? meta.keywords.join(",") : tags.join(","),
   };
-
-  if (meta.keywords) {
-    post.keywords = meta.keywords.join(",");
-  } else {
-    post.keywords = tags.join(",");
-  }
 
   if (meta.published) {
     post.datePublished = meta.published;
