@@ -6,6 +6,7 @@ const website = require("./website");
 const product = require("./product");
 const organization = require("./organization");
 const breadcrumbs = require("./breadcrumbs");
+const faq = require("./faq");
 
 /**
  * Structured data for the current context.
@@ -85,6 +86,7 @@ module.exports = ({ meta, type, tags = [] }) => {
       organization({ meta }),
       breadcrumbs({ meta }),
       website({ meta }),
+      faq({ meta }),
       content,
     ],
   };
