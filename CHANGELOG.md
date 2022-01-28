@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.5.0...v1.6.0) (2022-01-28)
+
+
+### Features
+
+* add faq page schema ([db81fad](https://github.com/quasibit/eleventy-plugin-schema/commit/db81fad36d669b590063f14bbcd372e51a0ac0cc))
+
 # [1.5.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.4.0...v1.5.0) (2022-01-21)
 
 
