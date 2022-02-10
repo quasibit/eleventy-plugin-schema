@@ -2,6 +2,7 @@
 
 const offer = require("./offer");
 const rating = require("./rating");
+const review = require("./review");
 
 /**
  * Product structured data. See: https://schema.org/Product.
@@ -38,6 +39,7 @@ module.exports = ({ meta }) => {
     "@type": "Product",
     aggregateRating: rating(meta.rating),
     offers: offer(meta.offers),
+    review: review(meta.reviews),
     url: meta.url,
     description: meta.description,
     image: meta.image.src,
