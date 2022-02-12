@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.6.0...v1.7.0) (2022-02-12)
+
+
+### Features
+
+* **product:** add reviews ([a999982](https://github.com/quasibit/eleventy-plugin-schema/commit/a999982325e75f5bb0f1b6e53b8e2fad30f1a1b4))
+
 # [1.6.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.5.0...v1.6.0) (2022-01-28)
 
 
