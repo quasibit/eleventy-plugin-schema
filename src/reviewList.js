@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * review item structured data. See: https://schema.org/review.
+ * Review item structured data. See: https://schema.org/review.
  *
  * @param {Object} review Review item.
  * @param {String} review.name Review title.

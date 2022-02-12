@@ -3,7 +3,7 @@
 const reviewList = require("./reviewList");
 
 /**
- * review structured data. See: https://schema.org/Review.
+ * Review structured data. See: https://schema.org/Review.
  * More info https://jsonld.com/review/
  *
  * @param {Object} param0 Context
