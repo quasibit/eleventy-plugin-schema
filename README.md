@@ -80,6 +80,8 @@ You can validate the structured data using one of the following tools:
 
 - [@nunof07](https://github.com/nunof07)
 
+Special thanks to [@christopherpickering](https://github.com/christopherpickering).
+
 ## License
 
 MIT. See [LICENSE](./LICENSE).
