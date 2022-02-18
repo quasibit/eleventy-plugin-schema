@@ -1,6 +1,7 @@
 "use strict";
 
 const image = require("./image");
+const video = require("./video");
 
 /**
  * WebPage structured data. See: https://schema.org/WebPage.
@@ -23,30 +24,40 @@ const image = require("./image");
  * @param {String} param0.meta.image.src Image URI.
  * @returns {Object}
  */
-module.exports = ({ meta }) => ({
-  "@type": "WebPage",
-
-  mainEntityOfPage: {
+module.exports = ({ meta }) => {
+  const page = {
     "@type": "WebPage",
-    "@id": meta.url,
-  },
 
-  url: meta.url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": meta.url,
+    },
 
-  isPartOf: {
-    "@id": `${meta.site.url}#website`,
-  },
+    url: meta.url,
 
-  headline: meta.title,
-  description: meta.description,
-  image: meta.image.src,
-  inLanguage: meta.language,
+    isPartOf: {
+      "@id": `${meta.site.url}#website`,
+    },
 
-  publisher: {
-    "@type": "Organization",
-    name: meta.site.name,
-    url: meta.site.url,
+    headline: meta.title,
+    description: meta.description,
+    image: meta.image.src,
+    inLanguage: meta.language,
 
-    logo: image(meta.site.logo),
-  },
-});
+    publisher: {
+      "@type": "Organization",
+      name: meta.site.name,
+      url: meta.site.url,
+
+      logo: image(meta.site.logo),
+    },
+  };
+
+  const videoList = video(meta.video);
+
+  if (videoList) {
+    page.video = videoList;
+  }
+
+  return page;
+};

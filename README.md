@@ -50,6 +50,7 @@ The shortcode supports the following schema types:
 - [Breadcrumbs](https://schema.org/BreadcrumbList) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [SearchAction](https://schema.org/SearchAction) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [FAQPage](https://schema.org/FAQPage) (thanks [@christopherpickering](https://github.com/christopherpickering)).
+- [Videos](https://schema.org/VideoObject) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 
 ## Usage
 
