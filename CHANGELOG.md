@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.7.0...v1.8.0) (2022-02-18)
+
+
+### Features
+
+* **page:** add video schema ([6be6f07](https://github.com/quasibit/eleventy-plugin-schema/commit/6be6f07a660546b6162d47acab9fccc8c04f8798))
+
 # [1.7.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.6.0...v1.7.0) (2022-02-12)
 
 
