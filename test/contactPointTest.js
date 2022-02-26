@@ -11,6 +11,7 @@ test("contactPoint single", (t) => {
     contactType: "customer service",
     contactOption: "TollFree",
     areaServed: "US",
+    url: "http://mychat",
   };
   const expected = {
     "@type": "ContactPoint",
@@ -18,6 +19,7 @@ test("contactPoint single", (t) => {
     contactType: contact.contactType,
     contactOption: contact.contactOption,
     areaServed: contact.areaServed,
+    url: contact.url,
   };
 
   parsedEqual(t, contactPoint(contact), expected);
