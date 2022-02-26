@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.8.0...v1.9.0) (2022-02-26)
+
+
+### Features
+
+* **updated contactpoint schema:** add url to contact point for chat or other types of contact ([d42823a](https://github.com/quasibit/eleventy-plugin-schema/commit/d42823ace9c9910806a20b4a3b81d2dcb6a273fa)), closes [#23](https://github.com/quasibit/eleventy-plugin-schema/issues/23)
+
 # [1.8.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.7.0...v1.8.0) (2022-02-18)
 
 
