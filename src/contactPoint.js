@@ -26,6 +26,7 @@
  * (e.g. "iPhone") or a general category of products or services
  * (e.g. "smartphones").
  * @param {String} contactPoint.telephone The telephone number.
+ * @param {String} contactPoint.url Url for contact point.
  * @returns {Object|undefined}
  */
 module.exports = (contactPoint) => {
@@ -48,5 +49,6 @@ module.exports = (contactPoint) => {
     hoursAvailable: contactPoint.hoursAvailable,
     productSupported: contactPoint.productSupported,
     telephone: contactPoint.telephone,
+    url: contactPoint.url,
   };
 };
