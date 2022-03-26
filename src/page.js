@@ -47,7 +47,7 @@ module.exports = ({ meta }) => {
     publisher: {
       "@type": "Organization",
       name: meta.site.name,
-      url: meta.site.url,
+      url: `${meta.site.url}#organization`,
 
       logo: image(meta.site.logo),
     },
