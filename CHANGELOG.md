@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.9.0...v1.9.1) (2022-03-26)
+
+
+### Bug Fixes
+
+* **page:** missing #organization in publisher url ([c4a9c54](https://github.com/quasibit/eleventy-plugin-schema/commit/c4a9c54f9adf02b0832c359d16f6ed6e4dd950a5))
+
 # [1.9.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.8.0...v1.9.0) (2022-02-26)
 
 
