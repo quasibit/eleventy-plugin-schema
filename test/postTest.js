@@ -66,7 +66,7 @@ test("post", (t) => {
     publisher: {
       "@type": "Organization",
       name: meta.site.name,
-      url: meta.site.url,
+      url: `${meta.site.url}#organization`,
 
       logo: {
         "@type": "ImageObject",
@@ -143,7 +143,7 @@ test("post_keywords", (t) => {
     publisher: {
       "@type": "Organization",
       name: meta.site.name,
-      url: meta.site.url,
+      url: `${meta.site.url}#organization`,
 
       logo: {
         "@type": "ImageObject",

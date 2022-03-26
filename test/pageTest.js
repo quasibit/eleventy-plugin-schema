@@ -48,7 +48,7 @@ test("page", (t) => {
     publisher: {
       "@type": "Organization",
       name: meta.site.name,
-      url: meta.site.url,
+      url: `${meta.site.url}#organization`,
 
       logo: {
         "@type": "ImageObject",
