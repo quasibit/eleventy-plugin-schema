@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.9.1...v1.10.0) (2022-06-12)
+
+
+### Features
+
+* avoid errors when no data is available ([52be542](https://github.com/quasibit/eleventy-plugin-schema/commit/52be542522edacdb71f976656239b21a6c7b829c))
+
 ## [1.9.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.9.0...v1.9.1) (2022-03-26)
 
 
