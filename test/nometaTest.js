@@ -2,7 +2,7 @@
 
 const test = require("ava");
 
-const script = require("../src/script.js");
+const script = require("../src/script");
 const parsedEqual = require("../utils/parsedEqual");
 
 test("no meta", (t) => {
