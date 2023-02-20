@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.10.0...v1.10.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* removed node version 10, per npm error message ([bdb0e01](https://github.com/quasibit/eleventy-plugin-schema/commit/bdb0e01dab21992acd104f1a927685266596c80c))
+
 # [1.10.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.9.1...v1.10.0) (2022-06-12)
 
 
