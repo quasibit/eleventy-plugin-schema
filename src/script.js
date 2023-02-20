@@ -49,7 +49,9 @@ const main = require("./main");
  * @returns {String}
  */
 module.exports = ({ meta, type, tags = [] }) => {
-  if (!meta) return "";
+  if (!meta) {
+    return "";
+  }
 
   const json = main({ meta, type, tags });
   const spaces = 2;

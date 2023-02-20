@@ -15,5 +15,11 @@
         "id-length": ["error", { "exceptions": ["t"] }]
       }
     }
-  ]
+  ],
+  "rules": {
+     "import/extensions": [
+      "error",
+      "never"
+   ]
+  }
 }
