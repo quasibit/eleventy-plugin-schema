@@ -6,7 +6,7 @@
   },
   "version": "1.10.0",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   },
   "description": "Eleventy plugin to generate JSON-LD structured data.",
   "main": ".eleventy.js",
