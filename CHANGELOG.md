@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.10.1...v1.11.0) (2023-02-25)
+
+
+### Bug Fixes
+
+* js optional chain ([74a1dbc](https://github.com/quasibit/eleventy-plugin-schema/commit/74a1dbc74e3030918909cb849cef3718993673d9))
+
+
+### Features
+
+* add jsonLd shortocde that outputs without script tag ([792690b](https://github.com/quasibit/eleventy-plugin-schema/commit/792690b7000fe7a2e06b039e3b049c481c64b11d)), closes [#49](https://github.com/quasibit/eleventy-plugin-schema/issues/49)
+
 ## [1.10.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.10.0...v1.10.1) (2023-02-20)
 
 
