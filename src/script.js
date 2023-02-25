@@ -49,7 +49,7 @@ const jsonLd = require("./jsonLd");
  * @returns {String}
  */
 module.exports = (data) => {
-  if (!data?.meta) {
+  if (!data.meta) {
     return "";
   }
 
