@@ -1,6 +1,6 @@
 "use strict";
 
-const jsonLd = require("./jsonLd");
+const main = require("./main");
 
 /**
  * Structured data script.
@@ -48,10 +48,20 @@ const jsonLd = require("./jsonLd");
  * @param {String} param0.meta.identifier A identifier for the item.
  * @returns {String}
  */
-module.exports = (data) => {
-  if (!data?.meta) {
+module.exports = ({ meta, type, tags = [] }) => {
+  if (!meta) {
     return "";
   }
 
-  return `<script type="application/ld+json">${jsonLd(data)}</script>`;
+  const json = main({ meta, type, tags });
+  const spaces = 2;
+
+  return JSON.stringify(
+    json,
+    (key, value) =>
+      Array.isArray(value)
+        ? value.filter((element) => element !== null && element !== undefined)
+        : value,
+    spaces
+  );
 };

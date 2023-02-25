@@ -38,9 +38,11 @@ module.exports = function(eleventyConfig) {
 
 ## Introduction
 
-The plugin adds a shortcode to generate the JSON-LD script (including the `<script>` tag).
+The plugin adds two shortcodes to generate the JSON-LD script:
+  - `jsonLdScript` (includes the `<script>` tag)
+  - `jsonLd` (just JSON-LD without the `<script>` tag)
 
-The shortcode supports the following schema types:
+The shortcodes support the following schema types:
 
 - [WebSite](https://schema.org/WebSite).
 - [BlogPosting](https://schema.org/BlogPosting).
@@ -62,6 +64,12 @@ Call the shortcode where you want the script to be displayed:
 
 ```njk
 {% jsonLdScript meta, type, tags %}
+```
+
+And if you don't want the `<script>` tag, then use this instead:
+
+```njk
+{% jsonLd meta, type, tags %}
 ```
 
 ### Validation
