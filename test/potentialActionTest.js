@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const potentialAction = require("../src/potentialAction");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import potentialAction from "../src/potentialAction.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("potentialAction", (t) => {
   const meta = {

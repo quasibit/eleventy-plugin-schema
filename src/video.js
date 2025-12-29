@@ -1,6 +1,4 @@
-"use strict";
-
-const videoList = require("./videoList");
+import videoList from "./videoList.js";
 
 /**
  * Video structured data. See: https://schema.org/VideoObject.
@@ -10,7 +8,7 @@ const videoList = require("./videoList");
  * @param {Array} param0.video Videos's.
  * @returns {Object|undefined}
  */
-module.exports = (video) => {
+export default (video) => {
   if (!video) {
     return;
   }

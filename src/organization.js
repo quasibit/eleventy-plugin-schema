@@ -1,9 +1,7 @@
-"use strict";
-
-const postalAddress = require("./postalAddress");
-const contactPoint = require("./contactPoint");
-const image = require("./image");
-const person = require("./person");
+import postalAddress from "./postalAddress.js";
+import contactPoint from "./contactPoint.js";
+import image from "./image.js";
+import person from "./person.js";
 
 /**
  * Organization structured data. See: https://schema.org/Organization.
@@ -29,7 +27,7 @@ const person = require("./person");
  * item's Wikipedia page, Wikidata entry, or official website.
  * @returns {Object|undefined}
  */
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   if (!meta.organization) {
     return;
   }

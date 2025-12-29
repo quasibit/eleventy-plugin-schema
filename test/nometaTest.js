@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const script = require("../src/script");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import script from "../src/script.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("no meta", (t) => {
   const meta = undefined;

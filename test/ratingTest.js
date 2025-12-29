@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const rating = require("../src/rating");
+import test from "ava";
+import rating from "../src/rating.js";
 
 test("rating", (t) => {
   const data = {

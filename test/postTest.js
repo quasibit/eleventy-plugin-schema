@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const post = require("../src/post");
+import test from "ava";
+import post from "../src/post.js";
 
 test("post", (t) => {
   const meta = {

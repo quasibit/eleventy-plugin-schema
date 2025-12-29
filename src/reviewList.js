@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Review item structured data. See: https://schema.org/review.
  *
@@ -12,7 +10,7 @@
  * @param {String} review.publisher Review publisher.
  * @returns {Object|undefined}
  */
-module.exports = (review) => {
+export default (review) => {
   if (!review) {
     return;
   }

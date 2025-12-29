@@ -1,7 +1,5 @@
-"use strict";
+import schema from "../.eleventy.js";
 
-const schema = require("../.eleventy");
-
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
   eleventyConfig.addPlugin(schema);
 };

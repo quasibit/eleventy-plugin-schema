@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const website = require("../src/website");
+import test from "ava";
+import website from "../src/website.js";
 
 test("website", (t) => {
   const meta = {

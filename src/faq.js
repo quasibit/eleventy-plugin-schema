@@ -1,6 +1,4 @@
-"use strict";
-
-const faqList = require("./faqList");
+import faqList from "./faqList.js";
 
 /**
  * FAQPage structured data. See: https://schema.org/FAQPage.
@@ -10,7 +8,7 @@ const faqList = require("./faqList");
  * @param {Array} param0.faq Faq's.
  * @returns {Object|undefined}
  */
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   if (!meta.faq) {
     return;
   }

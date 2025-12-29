@@ -1,6 +1,4 @@
-"use strict";
-
-const image = require("./image");
+import image from "./image.js";
 
 /**
  * Postal Address structured data. See: https://schema.org/ListItem.
@@ -13,7 +11,7 @@ const image = require("./image");
  * @param {String|Object} item.image An image of the item.
  * @returns {Object|undefined}
  */
-module.exports = (item) => {
+export default (item) => {
   if (!item) {
     return;
   }

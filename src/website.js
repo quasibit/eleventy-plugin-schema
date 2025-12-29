@@ -1,6 +1,4 @@
-"use strict";
-
-const potentialAction = require("./potentialAction");
+import potentialAction from "./potentialAction.js";
 
 /**
  * WebSite structured data. See: https://schema.org/WebSite.
@@ -15,7 +13,7 @@ const potentialAction = require("./potentialAction");
  * @param {String} param0.meta.language Language code (e.g. "en-US" or "en").
  * @returns {Object}
  */
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   const website = {
     "@type": "WebSite",
     "@id": `${meta.site.url}#website`,

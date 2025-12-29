@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const faq = require("../src/faq");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import faq from "../src/faq.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("faq single", (t) => {
   const meta = {
@@ -49,12 +46,10 @@ test("faq single", (t) => {
 
       {
         "@type": "Question",
-        // eslint-disable-next-line no-magic-numbers
         name: meta.faq[2].question,
 
         acceptedAnswer: {
           "@type": "Answer",
-          // eslint-disable-next-line no-magic-numbers
           text: meta.faq[2].answer,
         },
       },

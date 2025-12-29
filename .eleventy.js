@@ -1,13 +1,11 @@
-"use strict";
-
-const script = require("./src/script");
-const jsonLd = require("./src/jsonLd");
+import script from "./src/script.js";
+import jsonLd from "./src/jsonLd.js";
 
 /**
  * Add a shortcode to generate JSON-LD structured data.
  * @param {Object} eleventyConfig Eleventy Configuration API.
  */
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
   eleventyConfig.addShortcode("jsonLdScript", (meta, type, tags) =>
     script({ meta, type, tags })
   );

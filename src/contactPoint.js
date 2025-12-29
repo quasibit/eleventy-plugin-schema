@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Organization structured data. See: https://schema.org/ContactPoint.
  *
@@ -29,13 +27,13 @@
  * @param {String} contactPoint.url Url for contact point.
  * @returns {Object|undefined}
  */
-module.exports = (contactPoint) => {
+const contactPointFn = (contactPoint) => {
   if (!contactPoint) {
     return;
   }
 
   if (Array.isArray(contactPoint)) {
-    return contactPoint.map(module.exports);
+    return contactPoint.map(contactPointFn);
   }
 
   return {
@@ -52,3 +50,5 @@ module.exports = (contactPoint) => {
     url: contactPoint.url,
   };
 };
+
+export default contactPointFn;

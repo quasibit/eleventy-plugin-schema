@@ -1,6 +1,4 @@
-"use strict";
-
-const searchAction = require("./searchAction");
+import searchAction from "./searchAction.js";
 
 /**
  * potentialAction structured data. See: https://schema.org/potentialAction.
@@ -12,8 +10,7 @@ const searchAction = require("./searchAction");
  * @param {Object} param0.meta.potentialAction potentialAction
  * @returns {Object|undefined}
  */
-
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   if (!meta.potentialAction) {
     return;
   }

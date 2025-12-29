@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * mainEntity FAQ List structured data. See: https://schema.org/mainEntity.
  *
@@ -8,7 +6,7 @@
  * @param {String} item.answer Answer text.
  * @returns {Object|undefined}
  */
-module.exports = (item) => {
+export default (item) => {
   if (!item) {
     return;
   }

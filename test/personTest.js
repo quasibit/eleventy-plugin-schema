@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const person = require("../src/person");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import person from "../src/person.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("person string", (t) => {
   const name = "John Doe";

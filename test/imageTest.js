@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const image = require("../src/image");
+import test from "ava";
+import image from "../src/image.js";
 
 test("image object", (t) => {
   const data = {

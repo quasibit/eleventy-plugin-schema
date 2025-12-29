@@ -1,6 +1,4 @@
-"use strict";
-
-const listItem = require("./listItem");
+import listItem from "./listItem.js";
 
 /**
  * BreadcrumbList structured data. See: https://schema.org/BreadcrumbList.
@@ -10,7 +8,7 @@ const listItem = require("./listItem");
  * @param {Array} param0.breadcrumbs Breadcrumbs.
  * @returns {Object|undefined}
  */
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   if (!meta.breadcrumbs) {
     return;
   }

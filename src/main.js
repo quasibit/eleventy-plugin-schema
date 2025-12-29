@@ -1,12 +1,20 @@
-"use strict";
-
-const page = require("./page");
-const post = require("./post");
-const website = require("./website");
-const product = require("./product");
-const organization = require("./organization");
-const breadcrumbs = require("./breadcrumbs");
-const faq = require("./faq");
+import page from "./page.js";
+import post from "./post.js";
+import website from "./website.js";
+import product from "./product.js";
+import organization from "./organization.js";
+import breadcrumbs from "./breadcrumbs.js";
+import faq from "./faq.js";
+import article from "./article.js";
+import localBusiness from "./localBusiness.js";
+import event from "./event.js";
+import howTo from "./howTo.js";
+import newsArticle from "./newsArticle.js";
+import recipe from "./recipe.js";
+import jobPosting from "./jobPosting.js";
+import course from "./course.js";
+import book from "./book.js";
+import techArticle from "./techArticle.js";
 
 /**
  * Structured data for the current context.
@@ -70,13 +78,33 @@ const faq = require("./faq");
  * item's Wikipedia page, Wikidata entry, or official website.
  * @returns {Object}
  */
-module.exports = ({ meta, type, tags = [] }) => {
+export default ({ meta, type, tags = [] }) => {
   let content = page({ meta });
 
   if (type === "post") {
     content = post({ meta, tags });
   } else if (type === "product") {
     content = product({ meta });
+  } else if (type === "article") {
+    content = article({ meta, tags });
+  } else if (type === "localBusiness") {
+    content = localBusiness({ meta });
+  } else if (type === "event") {
+    content = event({ meta });
+  } else if (type === "howTo") {
+    content = howTo({ meta });
+  } else if (type === "newsArticle") {
+    content = newsArticle({ meta, tags });
+  } else if (type === "recipe") {
+    content = recipe({ meta });
+  } else if (type === "jobPosting") {
+    content = jobPosting({ meta });
+  } else if (type === "course") {
+    content = course({ meta });
+  } else if (type === "book") {
+    content = book({ meta });
+  } else if (type === "techArticle") {
+    content = techArticle({ meta, tags });
   }
 
   return {

@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const product = require("../src/product");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import product from "../src/product.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("product", (t) => {
   const meta = {

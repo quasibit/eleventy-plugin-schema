@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const postalAddress = require("../src/postalAddress");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import postalAddress from "../src/postalAddress.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("postalAddress", (t) => {
   const address = {
