@@ -62,6 +62,15 @@ The shortcodes support the following schema types:
 - [SearchAction](https://schema.org/SearchAction) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [FAQPage](https://schema.org/FAQPage) (thanks [@christopherpickering](https://github.com/christopherpickering)).
 - [Videos](https://schema.org/VideoObject) (thanks [@christopherpickering](https://github.com/christopherpickering)).
+- [Article](https://schema.org/Article) - Generic article type.
+- [NewsArticle](https://schema.org/NewsArticle) - News content with print info.
+- [LocalBusiness](https://schema.org/LocalBusiness) - Local business with address, hours, geo.
+- [Event](https://schema.org/Event) - Conferences, webinars, concerts.
+- [HowTo](https://schema.org/HowTo) - Tutorial/guide with steps.
+- [Recipe](https://schema.org/Recipe) - Food/cooking content with ingredients.
+- [JobPosting](https://schema.org/JobPosting) - Career pages and job boards.
+- [Course](https://schema.org/Course) - Educational/online learning content.
+- [Book](https://schema.org/Book) - Books with readAction support ([#27](https://github.com/quasibit/eleventy-plugin-schema/issues/27)).
 
 ## Usage
 

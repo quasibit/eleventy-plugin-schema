@@ -4,6 +4,15 @@
 ### Features
 
 * modernize codebase with ESM support
+* **schema:** add Article schema type (`type: "article"`)
+* **schema:** add NewsArticle schema type (`type: "newsArticle"`)
+* **schema:** add LocalBusiness schema type (`type: "localBusiness"`)
+* **schema:** add Event schema type (`type: "event"`)
+* **schema:** add HowTo schema type (`type: "howTo"`)
+* **schema:** add Recipe schema type (`type: "recipe"`)
+* **schema:** add JobPosting schema type (`type: "jobPosting"`)
+* **schema:** add Course schema type (`type: "course"`)
+* **schema:** add Book schema type with readAction support (`type: "book"`) closes [#27](https://github.com/quasibit/eleventy-plugin-schema/issues/27)
 
 
 ### BREAKING CHANGES

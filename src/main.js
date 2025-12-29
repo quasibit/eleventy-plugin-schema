@@ -5,6 +5,15 @@ import product from "./product.js";
 import organization from "./organization.js";
 import breadcrumbs from "./breadcrumbs.js";
 import faq from "./faq.js";
+import article from "./article.js";
+import localBusiness from "./localBusiness.js";
+import event from "./event.js";
+import howTo from "./howTo.js";
+import newsArticle from "./newsArticle.js";
+import recipe from "./recipe.js";
+import jobPosting from "./jobPosting.js";
+import course from "./course.js";
+import book from "./book.js";
 
 /**
  * Structured data for the current context.
@@ -75,6 +84,24 @@ export default ({ meta, type, tags = [] }) => {
     content = post({ meta, tags });
   } else if (type === "product") {
     content = product({ meta });
+  } else if (type === "article") {
+    content = article({ meta, tags });
+  } else if (type === "localBusiness") {
+    content = localBusiness({ meta });
+  } else if (type === "event") {
+    content = event({ meta });
+  } else if (type === "howTo") {
+    content = howTo({ meta });
+  } else if (type === "newsArticle") {
+    content = newsArticle({ meta, tags });
+  } else if (type === "recipe") {
+    content = recipe({ meta });
+  } else if (type === "jobPosting") {
+    content = jobPosting({ meta });
+  } else if (type === "course") {
+    content = course({ meta });
+  } else if (type === "book") {
+    content = book({ meta });
   }
 
   return {
