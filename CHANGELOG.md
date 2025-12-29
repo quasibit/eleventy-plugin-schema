@@ -13,6 +13,7 @@
 * **schema:** add JobPosting schema type (`type: "jobPosting"`)
 * **schema:** add Course schema type (`type: "course"`)
 * **schema:** add Book schema type with readAction support (`type: "book"`) closes [#27](https://github.com/quasibit/eleventy-plugin-schema/issues/27)
+* **schema:** add TechArticle schema type (`type: "techArticle"`)
 
 
 ### BREAKING CHANGES

@@ -71,6 +71,7 @@ The shortcodes support the following schema types:
 - [JobPosting](https://schema.org/JobPosting) - Career pages and job boards.
 - [Course](https://schema.org/Course) - Educational/online learning content.
 - [Book](https://schema.org/Book) - Books with readAction support ([#27](https://github.com/quasibit/eleventy-plugin-schema/issues/27)).
+- [TechArticle](https://schema.org/TechArticle) - Technical documentation with proficiency level.
 
 ## Usage
 
