@@ -80,14 +80,26 @@ If you already have the value in other properties, you can use
 
 Call the shortcode where you want the script to be displayed:
 
+**Nunjucks:**
 ```njk
 {% jsonLdScript meta, type, tags %}
 ```
 
+**Liquid:**
+```liquid
+{% jsonLdScript meta type tags %}
+```
+
 And if you don't want the `<script>` tag, then use this instead:
 
+**Nunjucks:**
 ```njk
 {% jsonLd meta, type, tags %}
+```
+
+**Liquid:**
+```liquid
+{% jsonLd meta type tags %}
 ```
 
 ### Validation
