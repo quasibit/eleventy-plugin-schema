@@ -1,3 +1,11 @@
+# [1.12.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.11.1...v1.12.0) (2025-12-29)
+
+
+### Features
+
+* **schema:** add 9 new schema types ([47b7204](https://github.com/quasibit/eleventy-plugin-schema/commit/47b72048d079281c98da6393057b67719f99225e)), closes [#27](https://github.com/quasibit/eleventy-plugin-schema/issues/27)
+* **schema:** add TechArticle schema type ([82ec298](https://github.com/quasibit/eleventy-plugin-schema/commit/82ec29887b6d5f6522a8b923c089e1a2a9894ddd))
+
 ## [1.11.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.11.0...v1.11.1) (2024-07-23)
 
 
