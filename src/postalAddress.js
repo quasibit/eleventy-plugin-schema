@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Postal Address structured data. See: https://schema.org/PostalAddress.
  *
@@ -19,7 +17,7 @@
  * 1600 Amphitheatre Pkwy.
  * @returns {Object|undefined}
  */
-module.exports = (address) => {
+export default (address) => {
   if (!address) {
     return;
   }

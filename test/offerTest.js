@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const offer = require("../src/offer");
+import test from "ava";
+import offer from "../src/offer.js";
 
 test("offer", (t) => {
   const data = {

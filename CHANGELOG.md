@@ -1,3 +1,49 @@
+# [2.0.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.11.1...v2.0.0) (2025-12-XX)
+
+
+### Features
+
+* modernize codebase with ESM support
+
+
+### BREAKING CHANGES
+
+* **Node.js 18+ required** - Dropped support for Node.js 12-17
+* **ESM-first architecture** - Package now uses ES modules as primary format
+* CommonJS still supported via `.eleventy.cjs` wrapper with dynamic imports
+
+### What's New
+
+* Full ES modules support with `"type": "module"`
+* Dual ESM/CJS exports for maximum compatibility
+* Updated to modern tooling:
+  - ESLint 9 with flat config
+  - AVA 6
+  - Prettier 3
+  - Eleventy 3 for development
+* Simplified dependencies (removed commitizen, husky, semantic-release)
+* GitHub Actions updated to test on Node 18, 20, 22, 24
+
+### Migration Guide
+
+**For ESM projects (Eleventy 2.0+):**
+```js
+import schema from "@quasibit/eleventy-plugin-schema";
+
+export default function(eleventyConfig) {
+  eleventyConfig.addPlugin(schema);
+}
+```
+
+**For CommonJS projects (still works):**
+```js
+const schema = require("@quasibit/eleventy-plugin-schema");
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(schema);
+};
+```
+
 ## [1.11.1](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.11.0...v1.11.1) (2024-07-23)
 
 

@@ -1,12 +1,10 @@
-"use strict";
-
-const page = require("./page");
-const post = require("./post");
-const website = require("./website");
-const product = require("./product");
-const organization = require("./organization");
-const breadcrumbs = require("./breadcrumbs");
-const faq = require("./faq");
+import page from "./page.js";
+import post from "./post.js";
+import website from "./website.js";
+import product from "./product.js";
+import organization from "./organization.js";
+import breadcrumbs from "./breadcrumbs.js";
+import faq from "./faq.js";
 
 /**
  * Structured data for the current context.
@@ -70,7 +68,7 @@ const faq = require("./faq");
  * item's Wikipedia page, Wikidata entry, or official website.
  * @returns {Object}
  */
-module.exports = ({ meta, type, tags = [] }) => {
+export default ({ meta, type, tags = [] }) => {
   let content = page({ meta });
 
   if (type === "post") {

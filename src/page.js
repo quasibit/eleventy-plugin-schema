@@ -1,7 +1,5 @@
-"use strict";
-
-const image = require("./image");
-const video = require("./video");
+import image from "./image.js";
+import video from "./video.js";
 
 /**
  * WebPage structured data. See: https://schema.org/WebPage.
@@ -24,7 +22,7 @@ const video = require("./video");
  * @param {String} param0.meta.image.src Image URI.
  * @returns {Object}
  */
-module.exports = ({ meta }) => {
+export default ({ meta }) => {
   const page = {
     "@type": "WebPage",
 

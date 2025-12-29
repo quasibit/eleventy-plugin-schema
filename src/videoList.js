@@ -1,7 +1,5 @@
-"use strict";
-
-const image = require("./image");
-const person = require("./person");
+import image from "./image.js";
+import person from "./person.js";
 
 /**
  * mainEntity FAQ List structured data. See: https://schema.org/mainEntity.
@@ -26,8 +24,7 @@ const person = require("./person");
  * @param {String} item.typicalAgeRange Video age range, ex 11+.
  * @returns {Object|undefined}
  */
-
-module.exports = (item) => {
+export default (item) => {
   if (!item) {
     return;
   }

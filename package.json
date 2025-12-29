@@ -1,24 +1,25 @@
 {
   "name": "@quasibit/eleventy-plugin-schema",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "version": "1.11.1",
-  "engines": {
-    "node": ">=12.0.0"
-  },
+  "version": "2.0.0",
   "description": "Eleventy plugin to generate JSON-LD structured data.",
-  "main": ".eleventy.js",
+  "type": "module",
+  "main": ".eleventy.cjs",
+  "module": ".eleventy.js",
+  "exports": {
+    ".": {
+      "import": "./.eleventy.js",
+      "require": "./.eleventy.cjs"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "demo": "npx @11ty/eleventy --input=demo --output=demo/_site --config=demo/.eleventy.js",
-    "test": "run-p -c test:* demo",
+    "test": "npm run test:ava && npm run test:lint && npm run demo",
     "test:ava": "ava",
-    "test:eslint": "eslint \"./**/*.js\" --color",
-    "test:prettier": "prettier --check ./**/*.js",
-    "coverage": "nyc --reporter=lcov ava",
-    "format": "prettier --write ./**/*.js",
-    "commit": "git-cz"
+    "test:lint": "eslint .",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,9 @@
     "eleventy-plugin",
     "json-ld",
     "jsonld",
-    "schema"
+    "schema",
+    "structured-data",
+    "seo"
   ],
   "author": {
     "name": "Nuno Freitas",
@@ -42,43 +45,18 @@
     "url": "https://github.com/quasibit/eleventy-plugin-schema/issues"
   },
   "homepage": "https://github.com/quasibit/eleventy-plugin-schema#readme",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@commitlint/cli": "^16.0.1",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "ava": "^3.15.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.3.1",
-    "eslint-config-hardcore": "^12.5.0",
-    "eslint-plugin-ava": "^10.3.1",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.1.4",
-    "npm-run-all": "^4.1.5",
-    "nyc": "^15.1.0",
-    "prettier": "^2.5.1",
-    "semantic-release": "^19.0.3"
+    "@11ty/eleventy": "^3.0.0",
+    "ava": "^6.2.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
   },
   "peerDependencies": {
-    "@11ty/eleventy": "^0.11.0 || ^0.12.0 || ^1.0.0 || ^2.0.0 || ^3.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --cache --fix",
-      "prettier --write"
-    ]
+    "@11ty/eleventy": ">=0.11.0"
   }
 }

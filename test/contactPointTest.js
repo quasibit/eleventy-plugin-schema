@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const contactPoint = require("../src/contactPoint");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import contactPoint from "../src/contactPoint.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("contactPoint single", (t) => {
   const contact = {

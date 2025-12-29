@@ -1,7 +1,5 @@
-"use strict";
-
-const page = require("./page");
-const author = require("./author");
+import page from "./page.js";
+import author from "./author.js";
 
 /**
  * BlogPosting structured data. See: https://schema.org/BlogPosting.
@@ -30,7 +28,7 @@ const author = require("./author");
  * @param {String[]} param0.tags (Optional) Tags.
  * @returns {Object}
  */
-module.exports = ({ meta, tags = [] }) => {
+export default ({ meta, tags = [] }) => {
   const base = page({ tags, meta });
   const post = {
     "@type": "BlogPosting",

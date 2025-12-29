@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const organization = require("../src/organization");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import organization from "../src/organization.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("organization", (t) => {
   const meta = {
@@ -107,26 +104,17 @@ test("organization", (t) => {
       },
       {
         "@type": "ContactPoint",
-        // eslint-disable-next-line no-magic-numbers
         telephone: meta.organization.contactPoint[2].telephone,
-        // eslint-disable-next-line no-magic-numbers
         contactType: meta.organization.contactPoint[2].contactType,
-        // eslint-disable-next-line no-magic-numbers
         contactOption: meta.organization.contactPoint[2].contactOption,
-        // eslint-disable-next-line no-magic-numbers
         areaServed: meta.organization.contactPoint[2].areaServed,
-        // eslint-disable-next-line no-magic-numbers
         availableLanguage: meta.organization.contactPoint[2].availableLanguage,
       },
       {
         "@type": "ContactPoint",
-        // eslint-disable-next-line no-magic-numbers
         telephone: meta.organization.contactPoint[3].telephone,
-        // eslint-disable-next-line no-magic-numbers
         contactType: meta.organization.contactPoint[3].contactType,
-        // eslint-disable-next-line no-magic-numbers
         contactOption: meta.organization.contactPoint[3].contactOption,
-        // eslint-disable-next-line no-magic-numbers
         areaServed: meta.organization.contactPoint[3].areaServed,
       },
     ],

@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * AggregateRating structured data. See https://schema.org/AggregateRating.
  *
@@ -11,7 +9,7 @@
  * @param {String} rating.reviewCount Total number of reviews.
  * @returns {Object|undefined}
  */
-module.exports = (rating) => {
+export default (rating) => {
   if (!rating) {
     return;
   }

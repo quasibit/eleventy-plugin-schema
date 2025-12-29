@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const review = require("../src/review");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import review from "../src/review.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("review", (t) => {
   const reviews = [
@@ -61,20 +58,16 @@ test("review", (t) => {
 
       reviewRating: {
         "@type": "Rating",
-        // eslint-disable-next-line no-magic-numbers
         ratingValue: reviews[2].rating,
       },
 
-      // eslint-disable-next-line no-magic-numbers
       name: reviews[2].name,
 
       author: {
         "@type": "Person",
-        // eslint-disable-next-line no-magic-numbers
         name: reviews[2].author,
       },
 
-      // eslint-disable-next-line no-magic-numbers
       datePublished: reviews[2].date,
     },
   ];

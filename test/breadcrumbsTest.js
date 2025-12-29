@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const breadcrumb = require("../src/breadcrumbs");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import breadcrumb from "../src/breadcrumbs.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("breadcrumb single", (t) => {
   const meta = {
@@ -53,9 +50,7 @@ test("breadcrumb single", (t) => {
         "@type": "ListItem",
 
         item: {
-          // eslint-disable-next-line no-magic-numbers
           "@id": meta.breadcrumbs[2].url,
-          // eslint-disable-next-line no-magic-numbers
           name: meta.breadcrumbs[2].name,
         },
       },

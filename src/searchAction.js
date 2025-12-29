@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Postal Address structured data. See: https://schema.org/SearchAction.
  *
@@ -8,7 +6,7 @@
  * {search_term_string} in the url.
  * @returns {Object|undefined}
  */
-module.exports = (potentialAction) => {
+export default (potentialAction) => {
   if (!potentialAction) {
     return;
   }

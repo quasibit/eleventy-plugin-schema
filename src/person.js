@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Person structured data. See https://schema.org/Person.
  *
@@ -7,7 +5,7 @@
  * @param {String} person.name Name.
  * @returns {Object|undefined}
  */
-module.exports = (person) => {
+const personFn = (person) => {
   if (!person) {
     return;
   }
@@ -20,7 +18,7 @@ module.exports = (person) => {
   }
 
   if (Array.isArray(person)) {
-    return person.map(module.exports);
+    return person.map(personFn);
   }
 
   return {
@@ -28,3 +26,5 @@ module.exports = (person) => {
     name: person.name,
   };
 };
+
+export default personFn;

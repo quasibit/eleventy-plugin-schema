@@ -1,9 +1,6 @@
-"use strict";
-
-const test = require("ava");
-
-const video = require("../src/video");
-const parsedEqual = require("../utils/parsedEqual");
+import test from "ava";
+import video from "../src/video.js";
+import parsedEqual from "../utils/parsedEqual.js";
 
 test("video single", (t) => {
   const metaVideo = [

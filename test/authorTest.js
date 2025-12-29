@@ -1,8 +1,5 @@
-"use strict";
-
-const test = require("ava");
-
-const author = require("../src/author");
+import test from "ava";
+import author from "../src/author.js";
 
 const authorName = "First Last";
 const expected = {
