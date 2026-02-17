@@ -15,6 +15,7 @@ import jobPosting from "./jobPosting.js";
 import course from "./course.js";
 import book from "./book.js";
 import techArticle from "./techArticle.js";
+import service from "./service.js";
 
 /**
  * Structured data for the current context.
@@ -105,6 +106,8 @@ export default ({ meta, type, tags = [] }) => {
     content = book({ meta });
   } else if (type === "techArticle") {
     content = techArticle({ meta, tags });
+  } else if (type === "service") {
+    content = service({ meta });
   }
 
   return {
