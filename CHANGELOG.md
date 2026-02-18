@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.12.0...v1.13.0) (2026-02-18)
+
+
+### Features
+
+* add basic support for Service type ([2f2ca6b](https://github.com/quasibit/eleventy-plugin-schema/commit/2f2ca6b517fd6fdf58935494d1efcba6100c23e9))
+
 # [1.12.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.11.1...v1.12.0) (2025-12-29)
 
 
