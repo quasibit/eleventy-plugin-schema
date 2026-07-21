@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.13.0...v1.14.0) (2026-07-21)
+
+
+### Features
+
+* **demo:** add eleventyComputed example for site-wide schema data ([046ac96](https://github.com/quasibit/eleventy-plugin-schema/commit/046ac96c2fd07a1200c6461ca26687ac7ee67811))
+
 # [1.13.0](https://github.com/quasibit/eleventy-plugin-schema/compare/v1.12.0...v1.13.0) (2026-02-18)
 
 
