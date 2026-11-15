@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import post from "../src/post.js";
 
-test("post", (t) => {
+test("post", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -74,10 +75,10 @@ test("post", (t) => {
     },
   };
 
-  t.deepEqual(post({ meta, tags }), expected);
+  assert.deepStrictEqual(post({ meta, tags }), expected);
 });
 
-test("post_keywords", (t) => {
+test("post_keywords", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -151,5 +152,5 @@ test("post_keywords", (t) => {
     },
   };
 
-  t.deepEqual(post({ meta }), expected);
+  assert.deepStrictEqual(post({ meta }), expected);
 });

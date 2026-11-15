@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import newsArticle from "../src/newsArticle.js";
 
-test("newsArticle", (t) => {
+test("newsArticle", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -74,10 +75,10 @@ test("newsArticle", (t) => {
     },
   };
 
-  t.deepEqual(newsArticle({ meta, tags }), expected);
+  assert.deepStrictEqual(newsArticle({ meta, tags }), expected);
 });
 
-test("newsArticle_with_print_info", (t) => {
+test("newsArticle_with_print_info", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -111,13 +112,13 @@ test("newsArticle_with_print_info", (t) => {
 
   const result = newsArticle({ meta });
 
-  t.is(result.dateline, "NEW YORK");
-  t.is(result.printEdition, "Morning Edition");
-  t.is(result.printPage, "A1");
-  t.is(result.printSection, "Front Page");
+  assert.strictEqual(result.dateline, "NEW YORK");
+  assert.strictEqual(result.printEdition, "Morning Edition");
+  assert.strictEqual(result.printPage, "A1");
+  assert.strictEqual(result.printSection, "Front Page");
 });
 
-test("newsArticle_with_wordCount", (t) => {
+test("newsArticle_with_wordCount", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -148,5 +149,5 @@ test("newsArticle_with_wordCount", (t) => {
 
   const result = newsArticle({ meta });
 
-  t.is(result.wordCount, 2500);
+  assert.strictEqual(result.wordCount, 2500);
 });

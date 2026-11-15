@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import offer from "../src/offer.js";
 
-test("offer", (t) => {
+test("offer", () => {
   const data = {
     priceCurrency: "USD",
     price: "20.00",
@@ -22,9 +23,9 @@ test("offer", (t) => {
     itemCondition: data.itemCondition,
   };
 
-  t.deepEqual(offer(data), expected);
+  assert.deepStrictEqual(offer(data), expected);
 });
 
-test("offer empty", (t) => {
-  t.is(offer(), undefined);
+test("offer empty", () => {
+  assert.strictEqual(offer(), undefined);
 });

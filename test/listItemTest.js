@@ -1,8 +1,9 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import listItem from "../src/listItem.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("product", (t) => {
+test("product", () => {
   const item = {
     name: "Home",
     url: "https://schema.org",
@@ -21,9 +22,9 @@ test("product", (t) => {
     },
   };
 
-  parsedEqual(t, listItem(item), expected);
+  parsedEqual(listItem(item), expected);
 });
 
-test("listItem empty", (t) => {
-  t.is(listItem(), undefined);
+test("listItem empty", () => {
+  assert.strictEqual(listItem(), undefined);
 });

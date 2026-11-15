@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import website from "../src/website.js";
 
-test("website", (t) => {
+test("website", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -20,5 +21,5 @@ test("website", (t) => {
     inLanguage: meta.language,
   };
 
-  t.deepEqual(website({ meta }), expected);
+  assert.deepStrictEqual(website({ meta }), expected);
 });

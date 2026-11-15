@@ -1,8 +1,9 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import postalAddress from "../src/postalAddress.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("postalAddress", (t) => {
+test("postalAddress", () => {
   const address = {
     streetAddress: "900 Linton Blvd Suite 104",
     addressLocality: "Delray Beach",
@@ -19,9 +20,9 @@ test("postalAddress", (t) => {
     addressCountry: address.addressCountry,
   };
 
-  parsedEqual(t, postalAddress(address), expected);
+  parsedEqual(postalAddress(address), expected);
 });
 
-test("postalAddress empty", (t) => {
-  t.is(postalAddress(), undefined);
+test("postalAddress empty", () => {
+  assert.strictEqual(postalAddress(), undefined);
 });

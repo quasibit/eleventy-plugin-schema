@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import organization from "../src/organization.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("organization", (t) => {
+test("organization", () => {
   const meta = {
     organization: {
       name: "Elite Strategies",
@@ -122,10 +122,10 @@ test("organization", (t) => {
     sameAs: meta.organization.sameAs,
   };
 
-  parsedEqual(t, organization({ meta }), expected);
+  parsedEqual(organization({ meta }), expected);
 });
 
-test("small_organization", (t) => {
+test("small_organization", () => {
   const meta = {
     organization: {
       name: "Elite Strategies",
@@ -185,5 +185,5 @@ test("small_organization", (t) => {
     sameAs: meta.organization.sameAs,
   };
 
-  parsedEqual(t, organization({ meta }), expected);
+  parsedEqual(organization({ meta }), expected);
 });

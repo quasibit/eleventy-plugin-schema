@@ -16,10 +16,10 @@
   },
   "scripts": {
     "demo": "npx @11ty/eleventy --input=demo --output=demo/_site --config=demo/.eleventy.js",
-    "test": "npm run test:ava && npm run test:lint && npm run demo",
-    "test:ava": "ava",
+    "test": "npm run test:unit && npm run test:lint && npm run demo",
+    "test:unit": "node --test \"test/*Test.js\"",
     "test:lint": "eslint .",
-    "coverage": "nyc --reporter=lcov ava",
+    "coverage": "c8 --all --include=\"src/**/*.js\" --reporter=text --reporter=lcov npm run test:unit",
     "format": "prettier --write ."
   },
   "repository": {
@@ -51,14 +51,13 @@
     "access": "public"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy": "^3.1.8",
     "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/git": "^11.0.1",
-    "ava": "^8.1.1",
-    "eslint": "^10.13.0",
-    "globals": "^17.13.0",
-    "nyc": "^18.0.0",
-    "prettier": "^3.9.10",
+    "c8": "^12.0.0",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
     "semantic-release": "^25.0.9"
   },
   "peerDependencies": {

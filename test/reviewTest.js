@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import review from "../src/review.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("review", (t) => {
+test("review", () => {
   const reviews = [
     {
       name: "great product",
@@ -72,5 +72,5 @@ test("review", (t) => {
     },
   ];
 
-  parsedEqual(t, review(reviews), expected);
+  parsedEqual(review(reviews), expected);
 });

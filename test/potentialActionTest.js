@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import potentialAction from "../src/potentialAction.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("potentialAction", (t) => {
+test("potentialAction", () => {
   const meta = {
     potentialAction: {
       type: "SearchAction",
@@ -20,5 +20,5 @@ test("potentialAction", (t) => {
     "query-input": "required name=search_term_string",
   };
 
-  parsedEqual(t, potentialAction({ meta }), expected);
+  parsedEqual(potentialAction({ meta }), expected);
 });

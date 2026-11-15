@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import rating from "../src/rating.js";
 
-test("rating", (t) => {
+test("rating", () => {
   const data = {
     ratingValue: "4.2",
     bestRating: "5",
@@ -18,9 +19,9 @@ test("rating", (t) => {
     reviewCount: data.reviewCount,
   };
 
-  t.deepEqual(rating(data), expected);
+  assert.deepStrictEqual(rating(data), expected);
 });
 
-test("rating empty", (t) => {
-  t.is(rating(), undefined);
+test("rating empty", () => {
+  assert.strictEqual(rating(), undefined);
 });

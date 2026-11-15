@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import techArticle from "../src/techArticle.js";
 
-test("techArticle", (t) => {
+test("techArticle", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -74,10 +75,10 @@ test("techArticle", (t) => {
     },
   };
 
-  t.deepEqual(techArticle({ meta, tags }), expected);
+  assert.deepStrictEqual(techArticle({ meta, tags }), expected);
 });
 
-test("techArticle_with_proficiencyLevel", (t) => {
+test("techArticle_with_proficiencyLevel", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -108,10 +109,10 @@ test("techArticle_with_proficiencyLevel", (t) => {
 
   const result = techArticle({ meta });
 
-  t.is(result.proficiencyLevel, "Expert");
+  assert.strictEqual(result.proficiencyLevel, "Expert");
 });
 
-test("techArticle_with_dependencies", (t) => {
+test("techArticle_with_dependencies", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -142,10 +143,10 @@ test("techArticle_with_dependencies", (t) => {
 
   const result = techArticle({ meta });
 
-  t.is(result.dependencies, "Node.js 18+, npm 9+");
+  assert.strictEqual(result.dependencies, "Node.js 18+, npm 9+");
 });
 
-test("techArticle_with_array_dependencies", (t) => {
+test("techArticle_with_array_dependencies", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -176,5 +177,5 @@ test("techArticle_with_array_dependencies", (t) => {
 
   const result = techArticle({ meta });
 
-  t.deepEqual(result.dependencies, ["Node.js 18+", "npm 9+", "Git"]);
+  assert.deepStrictEqual(result.dependencies, ["Node.js 18+", "npm 9+", "Git"]);
 });

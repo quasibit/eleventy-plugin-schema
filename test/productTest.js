@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import product from "../src/product.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("product", (t) => {
+test("product", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -99,5 +99,5 @@ test("product", (t) => {
     image: meta.image.src,
   };
 
-  parsedEqual(t, product({ meta, tags }), expected);
+  parsedEqual(product({ meta, tags }), expected);
 });

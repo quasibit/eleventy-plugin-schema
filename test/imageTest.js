@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import image from "../src/image.js";
 
-test("image object", (t) => {
+test("image object", () => {
   const data = {
     src: "https://example.com/image.jpg",
     width: "2000",
@@ -14,15 +15,15 @@ test("image object", (t) => {
     height: data.height,
   };
 
-  t.deepEqual(image(data), expected);
+  assert.deepStrictEqual(image(data), expected);
 });
 
-test("image string", (t) => {
+test("image string", () => {
   const url = "https://example.com/image.jpg";
 
-  t.deepEqual(image(url), url);
+  assert.deepStrictEqual(image(url), url);
 });
 
-test("image empty", (t) => {
-  t.is(image(), undefined);
+test("image empty", () => {
+  assert.strictEqual(image(), undefined);
 });

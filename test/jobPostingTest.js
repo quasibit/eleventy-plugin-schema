@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import jobPosting from "../src/jobPosting.js";
 
-test("jobPosting_basic", (t) => {
+test("jobPosting_basic", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -19,10 +20,10 @@ test("jobPosting_basic", (t) => {
     employmentType: meta.employmentType,
   };
 
-  t.deepEqual(jobPosting({ meta }), expected);
+  assert.deepStrictEqual(jobPosting({ meta }), expected);
 });
 
-test("jobPosting_with_hiringOrganization", (t) => {
+test("jobPosting_with_hiringOrganization", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -35,7 +36,7 @@ test("jobPosting_with_hiringOrganization", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.deepEqual(result.hiringOrganization, {
+  assert.deepStrictEqual(result.hiringOrganization, {
     "@type": "Organization",
     name: "TechCorp Inc",
     sameAs: "https://techcorp.com",
@@ -43,7 +44,7 @@ test("jobPosting_with_hiringOrganization", (t) => {
   });
 });
 
-test("jobPosting_with_jobLocation", (t) => {
+test("jobPosting_with_jobLocation", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -58,7 +59,7 @@ test("jobPosting_with_jobLocation", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.deepEqual(result.jobLocation, {
+  assert.deepStrictEqual(result.jobLocation, {
     "@type": "Place",
     address: {
       "@type": "PostalAddress",
@@ -71,7 +72,7 @@ test("jobPosting_with_jobLocation", (t) => {
   });
 });
 
-test("jobPosting_with_multiple_locations", (t) => {
+test("jobPosting_with_multiple_locations", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -83,12 +84,12 @@ test("jobPosting_with_multiple_locations", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.is(result.jobLocation.length, 2);
-  t.is(result.jobLocation[0].address.addressLocality, "San Francisco");
-  t.is(result.jobLocation[1].address.addressLocality, "New York");
+  assert.strictEqual(result.jobLocation.length, 2);
+  assert.strictEqual(result.jobLocation[0].address.addressLocality, "San Francisco");
+  assert.strictEqual(result.jobLocation[1].address.addressLocality, "New York");
 });
 
-test("jobPosting_with_baseSalary_range", (t) => {
+test("jobPosting_with_baseSalary_range", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -102,7 +103,7 @@ test("jobPosting_with_baseSalary_range", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.deepEqual(result.baseSalary, {
+  assert.deepStrictEqual(result.baseSalary, {
     "@type": "MonetaryAmount",
     currency: "USD",
     value: {
@@ -114,7 +115,7 @@ test("jobPosting_with_baseSalary_range", (t) => {
   });
 });
 
-test("jobPosting_with_baseSalary_fixed", (t) => {
+test("jobPosting_with_baseSalary_fixed", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -127,7 +128,7 @@ test("jobPosting_with_baseSalary_fixed", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.deepEqual(result.baseSalary, {
+  assert.deepStrictEqual(result.baseSalary, {
     "@type": "MonetaryAmount",
     currency: "USD",
     value: {
@@ -138,7 +139,7 @@ test("jobPosting_with_baseSalary_fixed", (t) => {
   });
 });
 
-test("jobPosting_with_identifier", (t) => {
+test("jobPosting_with_identifier", () => {
   const meta = {
     title: "Software Engineer",
     description: "We are looking for a skilled software engineer...",
@@ -150,14 +151,14 @@ test("jobPosting_with_identifier", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.deepEqual(result.identifier, {
+  assert.deepStrictEqual(result.identifier, {
     "@type": "PropertyValue",
     name: "TechCorp",
     value: "JOB-12345",
   });
 });
 
-test("jobPosting_with_remote_work", (t) => {
+test("jobPosting_with_remote_work", () => {
   const meta = {
     title: "Remote Software Engineer",
     description: "Work from anywhere...",
@@ -167,14 +168,14 @@ test("jobPosting_with_remote_work", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.is(result.jobLocationType, "TELECOMMUTE");
-  t.deepEqual(result.applicantLocationRequirements, {
+  assert.strictEqual(result.jobLocationType, "TELECOMMUTE");
+  assert.deepStrictEqual(result.applicantLocationRequirements, {
     "@type": "Country",
     name: "United States",
   });
 });
 
-test("jobPosting_returns_undefined_without_required_fields", (t) => {
+test("jobPosting_returns_undefined_without_required_fields", () => {
   const meta = {
     title: "Software Engineer",
     // missing description
@@ -182,5 +183,5 @@ test("jobPosting_returns_undefined_without_required_fields", (t) => {
 
   const result = jobPosting({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });

@@ -1,8 +1,9 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import contactPoint from "../src/contactPoint.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("contactPoint single", (t) => {
+test("contactPoint single", () => {
   const contact = {
     telephone: "+1-888-888-9999",
     contactType: "customer service",
@@ -19,10 +20,10 @@ test("contactPoint single", (t) => {
     url: contact.url,
   };
 
-  parsedEqual(t, contactPoint(contact), expected);
+  parsedEqual(contactPoint(contact), expected);
 });
 
-test("contactPoint array", (t) => {
+test("contactPoint array", () => {
   const contacts = [
     {
       telephone: "+1-888-888-9999",
@@ -50,9 +51,9 @@ test("contactPoint array", (t) => {
     },
   ];
 
-  parsedEqual(t, contactPoint(contacts), expected);
+  parsedEqual(contactPoint(contacts), expected);
 });
 
-test("contactPoint empty", (t) => {
-  t.is(contactPoint(), undefined);
+test("contactPoint empty", () => {
+  assert.strictEqual(contactPoint(), undefined);
 });

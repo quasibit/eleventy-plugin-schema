@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import recipe from "../src/recipe.js";
 
-test("recipe_basic", (t) => {
+test("recipe_basic", () => {
   const meta = {
     name: "Chocolate Chip Cookies",
     description: "The best chocolate chip cookies ever",
@@ -27,19 +28,19 @@ test("recipe_basic", (t) => {
 
   const result = recipe({ meta });
 
-  t.is(result["@type"], "Recipe");
-  t.is(result.name, "Chocolate Chip Cookies");
-  t.is(result.description, "The best chocolate chip cookies ever");
-  t.is(result.prepTime, "PT15M");
-  t.is(result.cookTime, "PT10M");
-  t.is(result.totalTime, "PT25M");
-  t.is(result.recipeYield, "24 cookies");
-  t.is(result.recipeCategory, "Dessert");
-  t.is(result.recipeCuisine, "American");
-  t.deepEqual(result.recipeIngredient, meta.recipeIngredient);
+  assert.strictEqual(result["@type"], "Recipe");
+  assert.strictEqual(result.name, "Chocolate Chip Cookies");
+  assert.strictEqual(result.description, "The best chocolate chip cookies ever");
+  assert.strictEqual(result.prepTime, "PT15M");
+  assert.strictEqual(result.cookTime, "PT10M");
+  assert.strictEqual(result.totalTime, "PT25M");
+  assert.strictEqual(result.recipeYield, "24 cookies");
+  assert.strictEqual(result.recipeCategory, "Dessert");
+  assert.strictEqual(result.recipeCuisine, "American");
+  assert.deepStrictEqual(result.recipeIngredient, meta.recipeIngredient);
 });
 
-test("recipe_with_string_instructions", (t) => {
+test("recipe_with_string_instructions", () => {
   const meta = {
     name: "Simple Recipe",
     recipeInstructions: ["Step one", "Step two", "Step three"],
@@ -47,14 +48,14 @@ test("recipe_with_string_instructions", (t) => {
 
   const result = recipe({ meta });
 
-  t.deepEqual(result.recipeInstructions, [
+  assert.deepStrictEqual(result.recipeInstructions, [
     { "@type": "HowToStep", text: "Step one", position: 1 },
     { "@type": "HowToStep", text: "Step two", position: 2 },
     { "@type": "HowToStep", text: "Step three", position: 3 },
   ]);
 });
 
-test("recipe_with_object_instructions", (t) => {
+test("recipe_with_object_instructions", () => {
   const meta = {
     name: "Detailed Recipe",
     recipeInstructions: [
@@ -69,12 +70,12 @@ test("recipe_with_object_instructions", (t) => {
 
   const result = recipe({ meta });
 
-  t.is(result.recipeInstructions[0].name, "Prep");
-  t.is(result.recipeInstructions[0].text, "Prepare ingredients");
-  t.is(result.recipeInstructions[0].url, "https://example.com/prep");
+  assert.strictEqual(result.recipeInstructions[0].name, "Prep");
+  assert.strictEqual(result.recipeInstructions[0].text, "Prepare ingredients");
+  assert.strictEqual(result.recipeInstructions[0].url, "https://example.com/prep");
 });
 
-test("recipe_with_author", (t) => {
+test("recipe_with_author", () => {
   const meta = {
     name: "Chef's Recipe",
     author: {
@@ -84,13 +85,13 @@ test("recipe_with_author", (t) => {
 
   const result = recipe({ meta });
 
-  t.deepEqual(result.author, {
+  assert.deepStrictEqual(result.author, {
     "@type": "Person",
     name: "Chef Gordon",
   });
 });
 
-test("recipe_with_nutrition", (t) => {
+test("recipe_with_nutrition", () => {
   const meta = {
     name: "Healthy Salad",
     nutrition: {
@@ -105,7 +106,7 @@ test("recipe_with_nutrition", (t) => {
 
   const result = recipe({ meta });
 
-  t.deepEqual(result.nutrition, {
+  assert.deepStrictEqual(result.nutrition, {
     "@type": "NutritionInformation",
     calories: "250 calories",
     carbohydrateContent: "30 g",
@@ -116,7 +117,7 @@ test("recipe_with_nutrition", (t) => {
   });
 });
 
-test("recipe_with_rating", (t) => {
+test("recipe_with_rating", () => {
   const meta = {
     name: "Popular Recipe",
     rating: {
@@ -127,7 +128,7 @@ test("recipe_with_rating", (t) => {
 
   const result = recipe({ meta });
 
-  t.deepEqual(result.aggregateRating, {
+  assert.deepStrictEqual(result.aggregateRating, {
     "@type": "AggregateRating",
     ratingValue: "4.5",
     bestRating: undefined,
@@ -137,12 +138,12 @@ test("recipe_with_rating", (t) => {
   });
 });
 
-test("recipe_returns_undefined_without_name", (t) => {
+test("recipe_returns_undefined_without_name", () => {
   const meta = {
     description: "A recipe without a name",
   };
 
   const result = recipe({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });
