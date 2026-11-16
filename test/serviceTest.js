@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import service from "../src/service.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("service_basic", (t) => {
+test("service_basic", () => {
   const meta = {
     name: "Managed WordPress Hosting",
     description: "Fast and secure hosting for WordPress websites",
@@ -18,10 +18,10 @@ test("service_basic", (t) => {
     serviceType: meta.serviceType,
   };
 
-  parsedEqual(t, service({ meta }), expected);
+  parsedEqual(service({ meta }), expected);
 });
 
-test("service_with_offers_rating_reviews", (t) => {
+test("service_with_offers_rating_reviews", () => {
   const meta = {
     name: "SEO Consulting",
     areaServed: ["US", "CA"],
@@ -77,5 +77,5 @@ test("service_with_offers_rating_reviews", (t) => {
     ]
   };
 
-  parsedEqual(t, service({ meta }), expected);
+  parsedEqual(service({ meta }), expected);
 });

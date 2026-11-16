@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import event from "../src/event.js";
 
-test("event_basic", (t) => {
+test("event_basic", () => {
   const meta = {
     name: "Tech Conference 2024",
     description: "Annual technology conference",
@@ -19,10 +20,10 @@ test("event_basic", (t) => {
     endDate: meta.endDate,
   };
 
-  t.deepEqual(event({ meta }), expected);
+  assert.deepStrictEqual(event({ meta }), expected);
 });
 
-test("event_with_physical_location", (t) => {
+test("event_with_physical_location", () => {
   const meta = {
     name: "Tech Conference 2024",
     startDate: "2024-06-15T09:00:00",
@@ -40,7 +41,7 @@ test("event_with_physical_location", (t) => {
 
   const result = event({ meta });
 
-  t.deepEqual(result.location, {
+  assert.deepStrictEqual(result.location, {
     "@type": "Place",
     name: "Convention Center",
     address: {
@@ -54,7 +55,7 @@ test("event_with_physical_location", (t) => {
   });
 });
 
-test("event_with_virtual_location", (t) => {
+test("event_with_virtual_location", () => {
   const meta = {
     name: "Online Webinar",
     startDate: "2024-06-15T09:00:00",
@@ -65,13 +66,13 @@ test("event_with_virtual_location", (t) => {
 
   const result = event({ meta });
 
-  t.deepEqual(result.location, {
+  assert.deepStrictEqual(result.location, {
     "@type": "VirtualLocation",
     url: "https://example.com/webinar",
   });
 });
 
-test("event_with_organizer_and_performer", (t) => {
+test("event_with_organizer_and_performer", () => {
   const meta = {
     name: "Concert",
     startDate: "2024-06-15T20:00:00",
@@ -87,19 +88,19 @@ test("event_with_organizer_and_performer", (t) => {
 
   const result = event({ meta });
 
-  t.deepEqual(result.organizer, {
+  assert.deepStrictEqual(result.organizer, {
     "@type": "Organization",
     name: "Music Productions Inc",
     url: "https://example.com/organizer",
   });
 
-  t.deepEqual(result.performer, {
+  assert.deepStrictEqual(result.performer, {
     "@type": "Person",
     name: "Famous Artist",
   });
 });
 
-test("event_with_offers", (t) => {
+test("event_with_offers", () => {
   const meta = {
     name: "Concert",
     startDate: "2024-06-15T20:00:00",
@@ -113,7 +114,7 @@ test("event_with_offers", (t) => {
 
   const result = event({ meta });
 
-  t.deepEqual(result.offers, {
+  assert.deepStrictEqual(result.offers, {
     "@type": "Offer",
     price: "50",
     priceCurrency: "USD",
@@ -122,7 +123,7 @@ test("event_with_offers", (t) => {
   });
 });
 
-test("event_with_status", (t) => {
+test("event_with_status", () => {
   const meta = {
     name: "Tech Conference 2024",
     startDate: "2024-06-15T09:00:00",
@@ -132,19 +133,19 @@ test("event_with_status", (t) => {
 
   const result = event({ meta });
 
-  t.is(result.eventStatus, "https://schema.org/EventScheduled");
-  t.is(
+  assert.strictEqual(result.eventStatus, "https://schema.org/EventScheduled");
+  assert.strictEqual(
     result.eventAttendanceMode,
     "https://schema.org/OfflineEventAttendanceMode",
   );
 });
 
-test("event_returns_undefined_without_required_fields", (t) => {
+test("event_returns_undefined_without_required_fields", () => {
   const meta = {
     description: "An event without name and startDate",
   };
 
   const result = event({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });

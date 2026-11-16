@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import breadcrumb from "../src/breadcrumbs.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("breadcrumb single", (t) => {
+test("breadcrumb single", () => {
   const meta = {
     breadcrumbs: [
       {
@@ -57,5 +57,5 @@ test("breadcrumb single", (t) => {
     ],
   };
 
-  parsedEqual(t, breadcrumb({ meta }), expected);
+  parsedEqual(breadcrumb({ meta }), expected);
 });

@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import article from "../src/article.js";
 
-test("article", (t) => {
+test("article", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -74,10 +75,10 @@ test("article", (t) => {
     },
   };
 
-  t.deepEqual(article({ meta, tags }), expected);
+  assert.deepStrictEqual(article({ meta, tags }), expected);
 });
 
-test("article_with_wordCount", (t) => {
+test("article_with_wordCount", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -107,5 +108,5 @@ test("article_with_wordCount", (t) => {
   };
 
   const result = article({ meta });
-  t.is(result.wordCount, 1500);
+  assert.strictEqual(result.wordCount, 1500);
 });

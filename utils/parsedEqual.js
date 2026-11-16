@@ -1,2 +1,4 @@
-export default (t, first, second) =>
-  t.deepEqual(JSON.parse(JSON.stringify(first)), second);
+import assert from "node:assert/strict";
+
+export default (first, second) =>
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(first)), second);

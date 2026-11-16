@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import course from "../src/course.js";
 
-test("course_basic", (t) => {
+test("course_basic", () => {
   const meta = {
     name: "Introduction to Web Development",
     description: "Learn the basics of HTML, CSS, and JavaScript",
@@ -15,10 +16,10 @@ test("course_basic", (t) => {
     url: meta.url,
   };
 
-  t.deepEqual(course({ meta }), expected);
+  assert.deepStrictEqual(course({ meta }), expected);
 });
 
-test("course_with_provider", (t) => {
+test("course_with_provider", () => {
   const meta = {
     name: "Introduction to Web Development",
     description: "Learn the basics of HTML, CSS, and JavaScript",
@@ -31,7 +32,7 @@ test("course_with_provider", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.provider, {
+  assert.deepStrictEqual(result.provider, {
     "@type": "Organization",
     name: "Example University",
     sameAs: "https://example.edu",
@@ -39,7 +40,7 @@ test("course_with_provider", (t) => {
   });
 });
 
-test("course_with_courseCode_and_prerequisites", (t) => {
+test("course_with_courseCode_and_prerequisites", () => {
   const meta = {
     name: "Advanced JavaScript",
     description: "Master advanced JS concepts",
@@ -51,13 +52,13 @@ test("course_with_courseCode_and_prerequisites", (t) => {
 
   const result = course({ meta });
 
-  t.is(result.courseCode, "CS201");
-  t.is(result.coursePrerequisites, "Introduction to Programming");
-  t.is(result.educationalLevel, "Intermediate");
-  t.is(result.inLanguage, "en");
+  assert.strictEqual(result.courseCode, "CS201");
+  assert.strictEqual(result.coursePrerequisites, "Introduction to Programming");
+  assert.strictEqual(result.educationalLevel, "Intermediate");
+  assert.strictEqual(result.inLanguage, "en");
 });
 
-test("course_with_courseInstance", (t) => {
+test("course_with_courseInstance", () => {
   const meta = {
     name: "Introduction to Web Development",
     description: "Learn the basics of HTML, CSS, and JavaScript",
@@ -75,18 +76,18 @@ test("course_with_courseInstance", (t) => {
 
   const result = course({ meta });
 
-  t.is(result.hasCourseInstance.length, 1);
-  t.is(result.hasCourseInstance[0]["@type"], "CourseInstance");
-  t.is(result.hasCourseInstance[0].name, "Spring 2024 Session");
-  t.is(result.hasCourseInstance[0].courseMode, "online");
-  t.is(result.hasCourseInstance[0].courseWorkload, "PT10H");
-  t.deepEqual(result.hasCourseInstance[0].instructor, {
+  assert.strictEqual(result.hasCourseInstance.length, 1);
+  assert.strictEqual(result.hasCourseInstance[0]["@type"], "CourseInstance");
+  assert.strictEqual(result.hasCourseInstance[0].name, "Spring 2024 Session");
+  assert.strictEqual(result.hasCourseInstance[0].courseMode, "online");
+  assert.strictEqual(result.hasCourseInstance[0].courseWorkload, "PT10H");
+  assert.deepStrictEqual(result.hasCourseInstance[0].instructor, {
     "@type": "Person",
     name: "Prof. Smith",
   });
 });
 
-test("course_with_multiple_instructors", (t) => {
+test("course_with_multiple_instructors", () => {
   const meta = {
     name: "Team-Taught Course",
     description: "Collaborative course",
@@ -99,13 +100,13 @@ test("course_with_multiple_instructors", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.hasCourseInstance[0].instructor, [
+  assert.deepStrictEqual(result.hasCourseInstance[0].instructor, [
     { "@type": "Person", name: "Prof. Smith" },
     { "@type": "Person", name: "Prof. Jones" },
   ]);
 });
 
-test("course_with_virtual_location", (t) => {
+test("course_with_virtual_location", () => {
   const meta = {
     name: "Online Course",
     description: "Virtual learning",
@@ -120,13 +121,13 @@ test("course_with_virtual_location", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.hasCourseInstance[0].location, {
+  assert.deepStrictEqual(result.hasCourseInstance[0].location, {
     "@type": "VirtualLocation",
     url: "https://example.com/classroom",
   });
 });
 
-test("course_with_physical_location", (t) => {
+test("course_with_physical_location", () => {
   const meta = {
     name: "In-Person Course",
     description: "Classroom learning",
@@ -142,14 +143,14 @@ test("course_with_physical_location", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.hasCourseInstance[0].location, {
+  assert.deepStrictEqual(result.hasCourseInstance[0].location, {
     "@type": "Place",
     name: "Main Campus",
     address: "123 University Ave",
   });
 });
 
-test("course_with_offers", (t) => {
+test("course_with_offers", () => {
   const meta = {
     name: "Premium Course",
     description: "Comprehensive learning",
@@ -161,14 +162,14 @@ test("course_with_offers", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.offers, {
+  assert.deepStrictEqual(result.offers, {
     "@type": "Offer",
     price: "299",
     priceCurrency: "USD",
   });
 });
 
-test("course_with_rating", (t) => {
+test("course_with_rating", () => {
   const meta = {
     name: "Popular Course",
     description: "Highly rated course",
@@ -180,7 +181,7 @@ test("course_with_rating", (t) => {
 
   const result = course({ meta });
 
-  t.deepEqual(result.aggregateRating, {
+  assert.deepStrictEqual(result.aggregateRating, {
     "@type": "AggregateRating",
     ratingValue: "4.8",
     bestRating: undefined,
@@ -190,7 +191,7 @@ test("course_with_rating", (t) => {
   });
 });
 
-test("course_returns_undefined_without_required_fields", (t) => {
+test("course_returns_undefined_without_required_fields", () => {
   const meta = {
     name: "Course Name",
     // missing description
@@ -198,5 +199,5 @@ test("course_returns_undefined_without_required_fields", (t) => {
 
   const result = course({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });

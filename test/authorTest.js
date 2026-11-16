@@ -1,4 +1,5 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import author from "../src/author.js";
 
 const authorName = "First Last";
@@ -7,12 +8,12 @@ const expected = {
   name: "First Last",
 };
 
-test("author object", (t) => {
+test("author object", () => {
   const data = { name: authorName };
 
-  t.deepEqual(author(data), expected);
+  assert.deepStrictEqual(author(data), expected);
 });
 
-test("author string", (t) => {
-  t.deepEqual(author(authorName), expected);
+test("author string", () => {
+  assert.deepStrictEqual(author(authorName), expected);
 });

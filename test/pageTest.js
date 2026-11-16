@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import page from "../src/page.js";
 
-test("page", (t) => {
+test("page", () => {
   const meta = {
     site: {
       url: "https://example.com",
@@ -56,5 +57,5 @@ test("page", (t) => {
     },
   };
 
-  t.deepEqual(page({ meta }), expected);
+  assert.deepStrictEqual(page({ meta }), expected);
 });

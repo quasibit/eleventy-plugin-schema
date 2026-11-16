@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import localBusiness from "../src/localBusiness.js";
 
-test("localBusiness_basic", (t) => {
+test("localBusiness_basic", () => {
   const meta = {
     name: "Joe's Pizza",
     description: "Best pizza in town",
@@ -19,10 +20,10 @@ test("localBusiness_basic", (t) => {
     priceRange: meta.priceRange,
   };
 
-  t.deepEqual(localBusiness({ meta }), expected);
+  assert.deepStrictEqual(localBusiness({ meta }), expected);
 });
 
-test("localBusiness_with_address", (t) => {
+test("localBusiness_with_address", () => {
   const meta = {
     name: "Joe's Pizza",
     address: {
@@ -36,7 +37,7 @@ test("localBusiness_with_address", (t) => {
 
   const result = localBusiness({ meta });
 
-  t.deepEqual(result.address, {
+  assert.deepStrictEqual(result.address, {
     "@type": "PostalAddress",
     streetAddress: "123 Main St",
     addressLocality: "New York",
@@ -46,7 +47,7 @@ test("localBusiness_with_address", (t) => {
   });
 });
 
-test("localBusiness_with_geo", (t) => {
+test("localBusiness_with_geo", () => {
   const meta = {
     name: "Joe's Pizza",
     geo: {
@@ -57,14 +58,14 @@ test("localBusiness_with_geo", (t) => {
 
   const result = localBusiness({ meta });
 
-  t.deepEqual(result.geo, {
+  assert.deepStrictEqual(result.geo, {
     "@type": "GeoCoordinates",
     latitude: 40.7128,
     longitude: -74.006,
   });
 });
 
-test("localBusiness_with_openingHours", (t) => {
+test("localBusiness_with_openingHours", () => {
   const meta = {
     name: "Joe's Pizza",
     openingHours: [
@@ -75,7 +76,7 @@ test("localBusiness_with_openingHours", (t) => {
 
   const result = localBusiness({ meta });
 
-  t.deepEqual(result.openingHoursSpecification, [
+  assert.deepStrictEqual(result.openingHoursSpecification, [
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: "Monday",
@@ -91,7 +92,7 @@ test("localBusiness_with_openingHours", (t) => {
   ]);
 });
 
-test("localBusiness_with_businessType", (t) => {
+test("localBusiness_with_businessType", () => {
   const meta = {
     name: "Joe's Pizza",
     businessType: "Restaurant",
@@ -99,15 +100,15 @@ test("localBusiness_with_businessType", (t) => {
 
   const result = localBusiness({ meta });
 
-  t.is(result["@type"], "Restaurant");
+  assert.strictEqual(result["@type"], "Restaurant");
 });
 
-test("localBusiness_returns_undefined_without_name", (t) => {
+test("localBusiness_returns_undefined_without_name", () => {
   const meta = {
     description: "A business without a name",
   };
 
   const result = localBusiness({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });

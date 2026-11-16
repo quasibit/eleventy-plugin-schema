@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import faq from "../src/faq.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("faq single", (t) => {
+test("faq single", () => {
   const meta = {
     faq: [
       {
@@ -56,5 +56,5 @@ test("faq single", (t) => {
     ],
   };
 
-  parsedEqual(t, faq({ meta }), expected);
+  parsedEqual(faq({ meta }), expected);
 });

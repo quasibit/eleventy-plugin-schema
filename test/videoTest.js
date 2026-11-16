@@ -1,8 +1,8 @@
-import test from "ava";
+import test from "node:test";
 import video from "../src/video.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("video single", (t) => {
+test("video single", () => {
   const metaVideo = [
     {
       name: "Funny Cat Poses 2.0",
@@ -87,5 +87,5 @@ test("video single", (t) => {
     },
   ];
 
-  parsedEqual(t, video(metaVideo), expected);
+  parsedEqual(video(metaVideo), expected);
 });

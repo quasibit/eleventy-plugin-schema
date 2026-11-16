@@ -1,7 +1,8 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import book from "../src/book.js";
 
-test("book_basic", (t) => {
+test("book_basic", () => {
   const meta = {
     name: "The Great Gatsby",
     description: "A classic American novel",
@@ -12,15 +13,15 @@ test("book_basic", (t) => {
 
   const result = book({ meta });
 
-  t.is(result["@type"], "Book");
-  t.is(result.name, "The Great Gatsby");
-  t.is(result.description, "A classic American novel");
-  t.is(result.url, "https://example.com/book/gatsby");
-  t.is(result.isbn, "978-0743273565");
-  t.is(result.datePublished, "1925-04-10");
+  assert.strictEqual(result["@type"], "Book");
+  assert.strictEqual(result.name, "The Great Gatsby");
+  assert.strictEqual(result.description, "A classic American novel");
+  assert.strictEqual(result.url, "https://example.com/book/gatsby");
+  assert.strictEqual(result.isbn, "978-0743273565");
+  assert.strictEqual(result.datePublished, "1925-04-10");
 });
 
-test("book_with_author", (t) => {
+test("book_with_author", () => {
   const meta = {
     name: "The Great Gatsby",
     author: {
@@ -30,13 +31,13 @@ test("book_with_author", (t) => {
 
   const result = book({ meta });
 
-  t.deepEqual(result.author, {
+  assert.deepStrictEqual(result.author, {
     "@type": "Person",
     name: "F. Scott Fitzgerald",
   });
 });
 
-test("book_with_publisher", (t) => {
+test("book_with_publisher", () => {
   const meta = {
     name: "The Great Gatsby",
     publisher: "Scribner",
@@ -44,13 +45,13 @@ test("book_with_publisher", (t) => {
 
   const result = book({ meta });
 
-  t.deepEqual(result.publisher, {
+  assert.deepStrictEqual(result.publisher, {
     "@type": "Organization",
     name: "Scribner",
   });
 });
 
-test("book_with_format_and_edition", (t) => {
+test("book_with_format_and_edition", () => {
   const meta = {
     name: "The Great Gatsby",
     bookFormat: "Hardcover",
@@ -62,14 +63,14 @@ test("book_with_format_and_edition", (t) => {
 
   const result = book({ meta });
 
-  t.is(result.bookFormat, "https://schema.org/Hardcover");
-  t.is(result.bookEdition, "First Edition");
-  t.is(result.numberOfPages, 180);
-  t.is(result.inLanguage, "en");
-  t.is(result.genre, "Fiction");
+  assert.strictEqual(result.bookFormat, "https://schema.org/Hardcover");
+  assert.strictEqual(result.bookEdition, "First Edition");
+  assert.strictEqual(result.numberOfPages, 180);
+  assert.strictEqual(result.inLanguage, "en");
+  assert.strictEqual(result.genre, "Fiction");
 });
 
-test("book_with_rating", (t) => {
+test("book_with_rating", () => {
   const meta = {
     name: "The Great Gatsby",
     rating: {
@@ -80,7 +81,7 @@ test("book_with_rating", (t) => {
 
   const result = book({ meta });
 
-  t.deepEqual(result.aggregateRating, {
+  assert.deepStrictEqual(result.aggregateRating, {
     "@type": "AggregateRating",
     ratingValue: "4.5",
     bestRating: undefined,
@@ -90,7 +91,7 @@ test("book_with_rating", (t) => {
   });
 });
 
-test("book_with_offers", (t) => {
+test("book_with_offers", () => {
   const meta = {
     name: "The Great Gatsby",
     offers: {
@@ -102,7 +103,7 @@ test("book_with_offers", (t) => {
 
   const result = book({ meta });
 
-  t.deepEqual(result.offers, {
+  assert.deepStrictEqual(result.offers, {
     "@type": "Offer",
     price: "12.99",
     priceCurrency: "USD",
@@ -110,7 +111,7 @@ test("book_with_offers", (t) => {
   });
 });
 
-test("book_with_readAction", (t) => {
+test("book_with_readAction", () => {
   const meta = {
     name: "The Great Gatsby",
     readAction: [
@@ -127,13 +128,13 @@ test("book_with_readAction", (t) => {
 
   const result = book({ meta });
 
-  t.is(result.potentialAction.length, 1);
-  t.is(result.potentialAction[0]["@type"], "ReadAction");
-  t.is(
+  assert.strictEqual(result.potentialAction.length, 1);
+  assert.strictEqual(result.potentialAction[0]["@type"], "ReadAction");
+  assert.strictEqual(
     result.potentialAction[0].target.urlTemplate,
     "https://example.com/read/gatsby",
   );
-  t.deepEqual(result.potentialAction[0].expectsAcceptanceOf, {
+  assert.deepStrictEqual(result.potentialAction[0].expectsAcceptanceOf, {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
@@ -141,12 +142,12 @@ test("book_with_readAction", (t) => {
   });
 });
 
-test("book_returns_undefined_without_name", (t) => {
+test("book_returns_undefined_without_name", () => {
   const meta = {
     description: "A book without a name",
   };
 
   const result = book({ meta });
 
-  t.is(result, undefined);
+  assert.strictEqual(result, undefined);
 });

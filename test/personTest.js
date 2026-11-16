@@ -1,28 +1,29 @@
-import test from "ava";
+import assert from "node:assert/strict";
+import test from "node:test";
 import person from "../src/person.js";
 import parsedEqual from "../utils/parsedEqual.js";
 
-test("person string", (t) => {
+test("person string", () => {
   const name = "John Doe";
   const expected = {
     "@type": "Person",
     name,
   };
 
-  parsedEqual(t, person(name), expected);
+  parsedEqual(person(name), expected);
 });
 
-test("person object", (t) => {
+test("person object", () => {
   const personObject = { name: "John Doe" };
   const expected = {
     "@type": "Person",
     name: personObject.name,
   };
 
-  parsedEqual(t, person(personObject), expected);
+  parsedEqual(person(personObject), expected);
 });
 
-test("person array", (t) => {
+test("person array", () => {
   const collection = [{ name: "Patrick Coombe" }, { name: "you" }];
   const expected = [
     {
@@ -36,8 +37,8 @@ test("person array", (t) => {
     },
   ];
 
-  parsedEqual(t, person(collection), expected);
+  parsedEqual(person(collection), expected);
 });
-test("person empty", (t) => {
-  t.is(person(), undefined);
+test("person empty", () => {
+  assert.strictEqual(person(), undefined);
 });

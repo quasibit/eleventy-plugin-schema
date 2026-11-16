@@ -23,6 +23,6 @@ jobs:
       - name: Test
         run: npm test
       - name: Generate coverage
-        run: npm run coverage
+        run: npm run coverage && test -s coverage/lcov.info
       - name: Upload coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
